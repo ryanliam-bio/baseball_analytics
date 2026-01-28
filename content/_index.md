@@ -20,12 +20,13 @@ sections:
           <h1 style="margin-top: 0;">Liam Ryan</h1>
           <h3 style="color: #6c757d; margin-top: -10px;">Independent Baseball Researcher</h3>
         </div>
+        <div style="text-align: center;">
+        I work in biomechanics and performance science, with a professional background supporting force plate measurement systems used in elite sport environments.
 
-        For better or worse, I love baseball. This site is a reflection of my efforts to further develop my analytical skills and share my thoughts about the game and its players.
-
+        <div>
         <div style="text-align: center;">
 
-        {{< icon name="envelope" pack="fas" >}} [Email Me](mailto:liam.ryan@comcast.net) | {{< icon name="" pack="fab" >}} [LinkedIn](https://www.linkedin.com/in/liam-r-22912998/)
+        {{< icon name="envelope" pack="fas" >}} [Email Me](mailto:liam.ryan@comcast.net) | {{< icon name="link" pack="fas" >}} [LinkedIn](https://www.linkedin.com/in/liam-r-22912998/)
 
         </div>
     design:
@@ -37,14 +38,12 @@ sections:
   # 2. MISSION STATEMENT
   - block: markdown
     content:
-      title: '⚾ My Mission'
-      subtitle: 'Bridging the gap between raw Statcast data and actionable insights.'
+      title: 'Applied Baseball Research'
+      subtitle: 'From tracking data to performance questions.'
       text: |-
-        I am an independent baseball researcher dedicated to uncovering value in the MLB awards market. By leveraging predictive modeling and advanced sabermetrics, I analyze how player performance translates to hardware.
+        I use baseball tracking data to explore questions related to player performance, development, and variability. Much of my work focuses on understanding how observable outcomes (such as release point, swing speed, or batted-ball tendencies) can reflect underlying mechanical or approach-level changes, while recognizing the limitations of proxy data.
 
-        My current work focuses on:
-        * **Predictive Modeling:** Identifying undervalued MVP and Cy Young candidates.
-        * **Statcast Deep Dives:** Identifying breakout candidates using pitch-level metrics.
+        This site serves as a working archive of analyses, written notes, and exploratory research as I continue to build applied performance science skills. Emphasis is placed on clear problem framing, reproducible workflows, and communicating uncertainty alongside results.
     design:
       columns: '1'
 
@@ -55,22 +54,21 @@ sections:
       title: Featured Analysis
       filters:
         folders:
-          - project
+          - projects
+      sort_by: 'weight'
+      sort_ascending: true
+      count: 2
+      offset: 0
     design:
       view: article-grid
       columns: 2
+      
 
   # 4. HIDE EVERYTHING ELSE
   - block: collection
-    id: news
+    id: archive
     active: false
   - block: collection
-    id: papers
-    active: false
-  - block: collection
-    id: talks
-    active: false
-  - block: cta-card
-    demo: true 
+    id: posts
     active: false
 ---

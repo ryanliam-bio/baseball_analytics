@@ -3,11 +3,12 @@
 title: "2025 Midseason Awards Check-In"
 summary: "A deep dive into the 2025 MVP, Cy Young, and Rookie of the Year markets at the All-Star Break."
 tags:
-  - MLB
-  - Statcast
   - Awards
+  - Statcast
+  - MLB
 date: "2025-07-18"
 share: false
+weight: 20
 profile: false
 # Optional: Add a featured image to the grid
 image:
@@ -18,8 +19,7 @@ image:
 ---
 
 > [!abstract] Summary
-> This "midseason" update focuses on identifying market inefficiencies in the player awards markets. Key positions include a high-conviction bet on **Juan Soto** for NL MVP and a continued fade of **Jacob Wilson** in the AL ROY race.
-
+> This "midseason" analysis evaluates the sustainability of player performance across major award categories at the 2025 All-Star Break. By leveraging Statcast data and expected outcome metrics, this report identifies significant valuation gaps- most notably the offensive ceiling for **Juan Soto** and the underlying regression risks for **Jacob Wilson**.
 
 
 <div style="text-align: center;">
@@ -95,7 +95,7 @@ Staying in Boston, Roman Anthony has quickly gotten his feet under him offensive
 
 Similarly, Nick Kurtz has managed to grind out 1.2/1.5 f/bWAR in 235 PA despite playing some of the worst 1B defense in baseball. The present 35 hit tool scouting grade seems to be accurate as evidenced by his 33.7% strikeout rate and 27th percentile xBA, but Kurtz has quickly grown into his 60 future power grade and is tied for 2nd in baseball with 12 home runs (170 wRC+) since returning from the IL on June 9th. This coincides with a significant month-over-month increase in Pull-Air%, painting a picture of a young hitter quickly learning how to access his power in-game most effectively. He is still flirting with the bottom 10 in Contact % but when he connects, he does damage. Robert Orr’s SEAGER leaderboard marks him 99th percentile in Damage/BBE and 86th in SEAGER (a swing decision metric that goes beyond simply zone swing/chase). There isn’t much of any reason to expect Kurtz to stop mashing, even if he was also named on the zStats home run overperformer leaderboard, because everything he hits is absolutely scalded (97th percentile xwOBAcon). As with any high-whiff slugger, your main hope in betting against Kurtz is that the usual rookie adjustments take longer than expected, because when the slumps come the defensive anchor can quickly drag him down. 
 
-Jasson Dominguez sucks.
+Jasson Dominguez is a candidate in name value only.
 
 Finally, the last real contender in my eyes is Cam Smith. A very raw talent, he made the Opening Day roster after being drafted and playing just 32 MiLB games in 2024. He’s been a slightly above-average hitter and a slightly negative fielder per FanGraphs (but a T25 fielder by DRS). At face value, neither of those are particularly exciting. However, he opened his swing significantly in mid-May and has been considerably better since with a 131 wRC+. There are still very much some growing pains to be had, as evidenced by his 2.9% Pull-Air% in July following a June in which he was at 20%. His 90th percentile max EV, 15th percentile pulled FB%, and 39th percentile SEAGER are all hallmarks of an inexperienced rookie learning on the job. He continues to lift the ball more, but recently those fly balls and line drives have been going to the opposite field much more often. Further shown by his deeper contact point this last month, it seems Cam is letting the ball travel too deep instead of attacking the ball to pull it authoritatively in the last month. How quickly he’s able to make this adjustment will determine this ROY race, though it should be more of a plate approach issue rather than a mechanical one. He sits squarely in the mix at 1.9 fWAR and 2.2 bWAR and has the tools to take off- if he can put it together in time. 
 
@@ -114,9 +114,9 @@ AL CY- Skubal slightly ahead, Crochet a bit less of a fatigue/injury worry for m
 
 NL CY- feels like Cole 2023 for Wheeler but Skenes about dead even right now. Lots of likely dead Webb in pocket, decent preseason Cris, small flyer on Sonny, decent bite of Robbie Ray probably dead but hanging tier 3.
 
-AL ROY- continuing to heavy fade JW. Cam Smith BIG in pocket, small Kurtz in preseason RR will cover my portfolio because his Process+ numbers are crazy, Chase Meidroth big swing dead w KC, Chandler Simpson, Alan Roden. Like Carthage of old, praying on the downfall of the Roman Empire. 
+AL ROY- continuing to heavy fade JW. Cam Smith BIG in pocket, small Kurtz in preseason RR will cover my portfolio because his Process+ numbers are crazy, Chase Meidroth big swing dead w Kristian Campbell, Chandler Simpson, Alan Roden. Like Carthage of old, praying on the downfall of the Roman Empire. 
 
-NL ROY- who even knows? Decent Misiorowski in pocket at callup, Baldwin has been a RR staple in the last month, plenty of Hyeseong probably dead, good pop on Burns probably dead but still watching. Matt Shaw is not a good baseball player.
+NL ROY- who even knows? Decent Misiorowski in pocket at callup, Baldwin has been a RR staple in the last month, plenty of Hyeseong probably dead, good pop on Burns probably dead but still watching. Matt Shaw is not a serious candidate.
 
 
 <br>
@@ -125,6 +125,7 @@ NL ROY- who even knows? Decent Misiorowski in pocket at callup, Baldwin has been
 
 *aforementioned completely arbitrary date is when Berryhorse victory lapped the hell out of his preseason Jacob Wilson wager in a gratuitous voice memo
 
-<img src="/media/chart1.png" style="display: block; margin: 0 auto; max-width: 80%; border: 1px solid #ddd;">
-
-
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 2rem;">
+  <img src="chart1.png" alt="Jacob Wilson Rolling Graph" style="max-width: 80%; height: auto;">
+  <p style="margin-top: 10px;"><em>Figure 1: Jacob Wilson 15-game Rolling WAR</em></p>
+</div>

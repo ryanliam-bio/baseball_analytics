@@ -12,10 +12,14 @@ sections:
   - block: collection
     content:
       title: Baseball Projects
-      text: I enjoy deep diving Statcast data for fantasy, betting, and general research purposes. While this project portfolio is a bit light due to inconsistent documentation on my part, I'm happy to share a few things I've worked on and written up in an effort to crystallize my thoughts over the years.
+      text: I enjoy deep diving Statcast data for fantasy, betting, and general research purposes. I am constantly seeking to expand the scope of my work and improve on previous iterations, but please enjoy my currently published projects and writeups.
       filters:
         folders:
           - projects
+      sort_by: 'weight'
+      sort_ascending: true
+      count: 0
+      paginate: 20
     design:
       view: article-grid
       fill_image: false
