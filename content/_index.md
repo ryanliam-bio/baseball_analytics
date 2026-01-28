@@ -23,7 +23,7 @@ sections:
         <div style="text-align: center;">
         I work in biomechanics and performance science, with a professional background supporting force plate measurement systems used in elite sport environments.
 
-        <div>
+        </div>
         <div style="text-align: center;">
 
         {{< icon name="envelope" pack="fas" >}} [Email Me](mailto:liam.ryan@comcast.net) | {{< icon name="link" pack="fas" >}} [LinkedIn](https://www.linkedin.com/in/liam-r-22912998/)
@@ -44,6 +44,8 @@ sections:
         I use baseball tracking data to explore questions related to player performance, development, and variability. Much of my work focuses on understanding how observable outcomes (such as release point, swing speed, or batted-ball tendencies) can reflect underlying mechanical or approach-level changes, while recognizing the limitations of proxy data.
 
         This site serves as a working archive of analyses, written notes, and exploratory research as I continue to build applied performance science skills. Emphasis is placed on clear problem framing, reproducible workflows, and communicating uncertainty alongside results.
+
+        Questions, constructive criticism, and general thoughts are always welcome- feel free to reach out.
     design:
       columns: '1'
 

@@ -1,251 +1,187 @@
 ---
 title: "Mechanical Consistency Profiling"
-summary: "SQL-driven analysis of pitching biomechanics using the Driveline OpenBiomechanics dataset to quantify repeatability and its relationship to velocity."
+summary: "Quantifying repeatability in college pitchers using the Driveline OpenBiomechanics dataset."
 tags:
   - SQL
+  - R
   - Biomechanics
-  - Driveline
-  - Featured
-date: "2026-01-27"
+date: "2026-01-25"
 share: false
 profile: false
-draft: true
+math: true
 weight: 3
 image:
-  filename: "consistency_scatter.png"
+  filename: "velo-scatter.png"
   caption: "Velocity vs Mechanical Consistency"
   focal_point: "Smart"
   preview_only: false
 ---
 
-<a href="analysis_queries.sql" download class="btn btn-primary">
-📥 Download SQL Queries
-</a>
-<a href="setup_database.R" download class="btn btn-outline-primary">
-📥 Download R Setup Script
+<a href="analysis.R" download class="btn btn-primary">
+Download Analysis Script (R)
 </a>
 
 ---
 
-### Motivation
+> [!abstract] Summary
+> This is an **exploratory analysis** designed to demonstrate a methodological approach- not to draw definitive conclusions. With only 41 college pitchers (~5 pitches each) and as few as 6 in the top velocity tier, sample sizes are insufficient for robust statistical inference. The patterns observed here are descriptive only and would require validation with larger datasets.
 
-"Repeatability" is a frequent topic in pitching development conversations, but it's rarely quantified rigorously. This project uses the [Driveline OpenBiomechanics Project](https://github.com/drivelineresearch/openbiomechanics) dataset to answer:
+## Motivation
 
-1. **How consistent are elite pitchers mechanically?**
-2. **Do higher-velocity pitchers exhibit more or less variability?**
-3. **Which biomechanical metrics show the tightest consistency?**
+"Repeatability" is frequently cited in pitching development conversations, but it's rarely quantified. This analysis uses the [Driveline OpenBiomechanics Project](https://github.com/drivelineresearch/openbiomechanics) to explore:
 
-This analysis focuses on the consistency-velocity relationship rather than command outcomes, which have been explored elsewhere ([Pelletier et al., SABR 2025](https://sabr.org/analytics/presentations/2025)).
+1. How consistent are college pitchers mechanically, pitch-to-pitch?
+2. Is there a relationship between fastball velocity and mechanical repeatability?
+3. Which biomechanical metrics show the most/least variation?
 
-The analysis is conducted entirely in SQL, demonstrating database skills applicable to organizational biomechanics pipelines.
+The focus here is on consistency itself- not command outcomes or injury correlations, which would require different datasets. This analysis was partially inspired by Driveline's stellar work exploring [how biomechanical markers relate to command.](https://sabr.org/analytics/presentations/2025)
+
+---
+
+## Data
+
+The OpenBiomechanics Project provides marker-based motion capture data from pitchers assessed at Driveline Baseball.
+
+**Full sample composition:**
+| Playing Level | n |
+|---------------|---|
+| College | 75 |
+| High School | 5 |
+| Independent | 4 |
+| MiLB | 2 |
+
+High school pitchers averaged ~10 mph below MiLB arms, making cross-level comparisons problematic. This analysis **filters to college pitchers with 5+ fastballs per session**, resulting in the final analytical sample of 41 pitchers.
 
 ---
 
-### Data Source
-
-The OpenBiomechanics Project provides marker-based motion capture data from ~100 pitchers assessed at Driveline Baseball. Key tables:
-
-| Table | Description |
-|-------|-------------|
-| `metadata` | Pitcher demographics (age, height, mass, playing level) |
-| `poi` | Point-of-interest metrics per pitch (velocities, joint angles, torques, GRF) |
-
-Data was loaded into SQLite for query execution. The full setup script is available above.
-
----
+## Methods
 
 ### Quantifying Consistency
 
 Mechanical consistency is measured via **coefficient of variation (CV)**:
 
-<div style="overflow-x: auto;">
-
 $$CV = \frac{\sigma}{\mu} \times 100$$
 
-</div>
+Lower CV indicates tighter repeatability. For metrics that can be negative (e.g., trunk lateral tilt), raw standard deviation is used instead.
 
-Lower CV indicates tighter repeatability. Key metrics analyzed:
+### Metrics Analyzed
 
-- **Torso rotational velocity** (CV_torso)
-- **Shoulder internal rotation velocity** (CV_shoulder)
-- **Hip-shoulder separation** (CV_hip_shoulder)
-- **Arm slot** (CV_arm_slot)
+| Category | Metric | Measure |
+|----------|--------|---------|
+| Release position | Arm slot | CV |
+| Release position | Trunk lateral tilt at release | SD |
+| Separation | Hip-shoulder separation | CV |
+| Lower half | Stride length | CV |
+| Rotational | Pelvis rotational velocity | CV |
 
----
+### Composite Mechanical CV
 
-### SQL Implementation
+For pitcher profiling, a composite mechanical CV was calculated by averaging four metrics:
+- Arm slot CV
+- Stride length CV
+- Hip-shoulder separation CV
+- Pelvis rotational velocity CV
 
-#### Per-Pitcher Consistency Calculation
+Trunk tilt was excluded from the composite because it uses SD (different scale than CV).
 
-```sql
-WITH pitcher_aggregates AS (
-  SELECT
-    session,
-    COUNT(*) as n_pitches,
-    AVG(pitch_speed_mph) as mean_velo,
-    AVG(max_torso_rotational_velo) as mean_torso_velo,
-    STDEV(max_torso_rotational_velo) as sd_torso_velo,
-    STDEV(arm_slot) as sd_arm_slot,
-    AVG(arm_slot) as mean_arm_slot
-  FROM poi
-  WHERE pitch_type = 'FF'
-  GROUP BY session
-  HAVING COUNT(*) >= 5
-)
-SELECT
-  session,
-  ROUND(mean_velo, 1) as velo_mph,
-  ROUND((sd_torso_velo / mean_torso_velo) * 100, 2) as cv_torso,
-  ROUND((sd_arm_slot / mean_arm_slot) * 100, 2) as cv_arm_slot
-FROM pitcher_aggregates
-ORDER BY mean_velo DESC;
-```
+### Velocity Tiers
 
-#### Velocity Tier Comparison
+Pitchers were grouped by mean fastball velocity:
 
-```sql
-WITH pitcher_cv AS (
-  SELECT
-    session,
-    AVG(pitch_speed_mph) as avg_velo,
-    (STDEV(max_torso_rotational_velo) / AVG(max_torso_rotational_velo)) * 100 as cv_torso,
-    (STDEV(arm_slot) / AVG(arm_slot)) * 100 as cv_arm_slot
-  FROM poi
-  WHERE pitch_type = 'FF'
-  GROUP BY session
-  HAVING COUNT(*) >= 5
-),
-tiered AS (
-  SELECT *,
-    CASE
-      WHEN avg_velo >= 92 THEN '92+ mph'
-      WHEN avg_velo >= 88 THEN '88-92 mph'
-      WHEN avg_velo >= 84 THEN '84-88 mph'
-      ELSE '< 84 mph'
-    END as velo_tier
-  FROM pitcher_cv
-)
-SELECT
-  velo_tier,
-  COUNT(*) as n_pitchers,
-  ROUND(AVG(cv_torso), 3) as mean_cv_torso,
-  ROUND(AVG(cv_arm_slot), 3) as mean_cv_arm_slot
-FROM tiered
-GROUP BY velo_tier
-ORDER BY AVG(avg_velo) DESC;
-```
+| Tier | Velocity Range |
+|------|----------------|
+| 1 | 90+ mph |
+| 2 | 86-90 mph |
+| 3 | 82-86 mph |
+| 4 | < 82 mph |
 
 ---
 
-### Key Findings
+## Results
 
-**Velocity Tier Analysis**
+### Velocity vs. Arm Slot Consistency
 
-| Tier | n | Mean CV (Torso) | Mean CV (Arm Slot) |
-|------|---|-----------------|-------------------|
-| 92+ mph | 18 | 2.84% | 1.92% |
-| 88-92 mph | 45 | 3.12% | 2.31% |
-| 84-88 mph | 29 | 3.67% | 2.78% |
-| < 84 mph | 8 | 4.21% | 3.45% |
+![Velocity vs. Arm Slot CV](velo-scatter.png)
 
-Higher-velocity pitchers tend to exhibit **lower mechanical variability**, particularly in arm slot consistency. This aligns with the intuition that elite velocity requires precise, repeatable sequencing.
+Correlation between fastball velocity and arm slot CV: **r = 0.033, p = 0.837**. At the individual pitcher level, there is essentially no linear relationship between velocity and arm slot consistency.
 
----
+### Tier Comparison
 
-### Advanced Queries
+![Consistency by Velocity Tier](tier-box.png)
 
-#### Fatigue Detection via Window Functions
+| Tier | n | Mean Velo | Mean CV (Arm Slot) | 95% CI |
+|------|---|-----------|-------------------|--------|
+| 90+ mph | 6 | 91.7 | 3.76 | [2.11, 5.41] |
+| 86-90 mph | 13 | 87.5 | 5.58 | [4.73, 6.43] |
+| 82-86 mph | 11 | 84.3 | 4.83 | [3.83, 5.83] |
+| < 82 mph | 11 | 79.0 | 4.58 | [3.05, 6.11] |
 
-Tracking metric drift across throws within a session:
+The 90+ mph tier shows the lowest mean arm slot CV (3.76%), while the 86-90 mph tier shows the highest (5.58%). However, confidence intervals overlap substantially across all tiers, and sample sizes are far too low to draw meaningful conclusions.
 
-```sql
-WITH numbered_pitches AS (
-  SELECT
-    session,
-    pitch_speed_mph,
-    arm_slot,
-    ROW_NUMBER() OVER (PARTITION BY session ORDER BY session_pitch) as pitch_num,
-    COUNT(*) OVER (PARTITION BY session) as total_pitches
-  FROM poi
-  WHERE pitch_type = 'FF'
-),
-early_late AS (
-  SELECT
-    session,
-    CASE WHEN pitch_num <= 5 THEN 'early' ELSE 'late' END as phase,
-    pitch_speed_mph,
-    arm_slot
-  FROM numbered_pitches
-  WHERE total_pitches >= 10
-    AND (pitch_num <= 5 OR pitch_num > total_pitches - 5)
-)
-SELECT
-  session,
-  ROUND(AVG(CASE WHEN phase = 'late' THEN pitch_speed_mph END) -
-        AVG(CASE WHEN phase = 'early' THEN pitch_speed_mph END), 2) as velo_drift,
-  ROUND(AVG(CASE WHEN phase = 'late' THEN arm_slot END) -
-        AVG(CASE WHEN phase = 'early' THEN arm_slot END), 2) as arm_slot_drift
-FROM early_late
-GROUP BY session
-ORDER BY velo_drift ASC;
-```
+### Full Biomechanical Summary by Tier
 
-#### Pitcher Profiling with NTILE
+| Tier | n | Arm Slot CV | Trunk Tilt SD | Hip-Shoulder CV | Stride CV | Pelvis Rot CV | Composite CV |
+|------|---|-------------|---------------|-----------------|-----------|---------------|--------------|
+| 90+ mph | 6 | 3.76 | 1.03 | 3.42 | 1.30 | 3.52 | **3.00** |
+| 86-90 mph | 13 | 5.58 | 1.49 | 3.11 | 1.82 | 4.00 | 3.63 |
+| 82-86 mph | 11 | 4.83 | 1.34 | 3.17 | 1.52 | 4.50 | 3.51 |
+| < 82 mph | 11 | 4.58 | 1.84 | 4.70 | 2.14 | 3.34 | 3.69 |
 
-Categorizing pitchers by velocity AND consistency:
+*Composite CV = average of Arm Slot, Hip-Shoulder, Stride, and Pelvis Rot CVs (excludes Trunk Tilt SD due to different scale)*
 
-```sql
-WITH pitcher_profiles AS (
-  SELECT
-    session,
-    AVG(pitch_speed_mph) as avg_velo,
-    (STDEV(max_torso_rotational_velo) / AVG(max_torso_rotational_velo) +
-     STDEV(arm_slot) / AVG(arm_slot)) / 2 * 100 as avg_mechanical_cv
-  FROM poi
-  WHERE pitch_type = 'FF'
-  GROUP BY session
-  HAVING COUNT(*) >= 5
-),
-ranked AS (
-  SELECT *,
-    NTILE(4) OVER (ORDER BY avg_velo DESC) as velo_quartile,
-    NTILE(4) OVER (ORDER BY avg_mechanical_cv ASC) as consistency_quartile
-  FROM pitcher_profiles
-)
-SELECT
-  session,
-  ROUND(avg_velo, 1) as velo_mph,
-  ROUND(avg_mechanical_cv, 2) as mech_cv_pct,
-  CASE
-    WHEN velo_quartile = 1 AND consistency_quartile = 1 THEN 'Elite'
-    WHEN velo_quartile = 1 AND consistency_quartile = 4 THEN 'Volatile Arm'
-    WHEN velo_quartile = 4 AND consistency_quartile = 1 THEN 'Consistent but Slow'
-    ELSE 'Development'
-  END as profile
-FROM ranked
-ORDER BY avg_velo DESC;
-```
+**Observed patterns** (descriptive only; not statistically validated):
+- The 90+ mph tier shows the lowest variability in trunk tilt (SD = 1.03°) and stride length (CV = 1.30%)
+  - Composite CV for this group was noticeably lower than any other. Further exploration of this pattern is desired with a more sufficient dataset.
+- The < 82 mph tier shows notably higher hip-shoulder separation variability (CV = 4.70%) compared to other tiers
+
+### Pitcher Profiles
+
+Using quartile rankings for both velocity and composite mechanical CV, pitchers were classified:
+
+| Profile | Description | n |
+|---------|-------------|---|
+| Elite | Top quartile velo + top quartile consistency | 6 |
+| Plus Velo / Plus Consistency | Top quartile velo, 2nd quartile consistency | 3 |
+| Volatile Arm | Top quartile velo, bottom half consistency | 2 |
+| Above Average | 2nd quartile velo, top half consistency | 2 |
+| Consistent / Minus Velo | Bottom half velo, top quartile consistency | 4 |
+| Average | Middle of distribution | 21 |
+| Needs Development | Bottom quartile in both | 3 |
+
+The majority of pitchers (21 of 41) fall into the "Average" category, as expected with quartile-based classification. Six pitchers met the criteria for "Elite" status: top quartile in both velocity and mechanical consistency.
 
 ---
 
-### Limitations & Extensions
+## Limitations
 
-**Current Limitations:**
-- Single-session data (no longitudinal tracking)
-- Fastballs only; breaking balls may show different consistency patterns
-- No injury history to correlate with mechanical variability
+**Sample constraints:**
+- ~5 pitches per pitcher limits the precision of CV estimates; each pitcher's "consistency" score has high uncertainty
+- 41 pitchers split across 4 velocity tiers yields 6-13 per group, too few for reliable group comparisons
+- Driveline's sample is self-selected; these are pitchers who sought out biomechanical assessment, likely not representative of all college pitchers
 
-**Potential Extensions:**
-- Correlate consistency metrics with elbow/shoulder torque
-- Compare pre/post mechanical intervention sessions
-- Build predictive model for velocity gains based on consistency improvements
+**Scope constraints:**
+- Single-session data; no longitudinal tracking to assess consistency changes over time
+- Fastballs only; breaking ball consistency may differ
+- No outcome data (command, whiff rate) to validate whether consistency matters for performance
+
+**What this analysis demonstrates:**
+- A reproducible methodology for quantifying mechanical consistency
+- SQL-based biomechanical data pipeline construction
+- Framework for hypothesis generation in future studies with adequate sample sizes
+
+**What it cannot support:**
+- Causal claims ("velocity causes consistency")
+- Generalization to all college pitchers
+- Statistically validated conclusions
 
 ---
 
-### Technical Notes
+## Technical Implementation
 
-- **Database:** SQLite (portable, no server required)
-- **Source Data:** [Driveline OpenBiomechanics Project](https://github.com/drivelineresearch/openbiomechanics)
-- **SQL Features Used:** CTEs, window functions (NTILE, ROW_NUMBER, PARTITION BY), CASE expressions, aggregate functions, JOINs, HAVING clauses
+Full pipeline in downloadable R script: SQL (CTEs, window functions, JOINs) → R (correlation, visualization).
 
-The complete SQL file and R setup script are available for download above.
+---
+
+## Source
+
+Data from the [Driveline OpenBiomechanics Project](https://github.com/drivelineresearch/openbiomechanics), a public repository of pitching biomechanics data.

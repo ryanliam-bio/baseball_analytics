@@ -5,7 +5,6 @@ tags:
   - Biomechanics
   - MLB
   - Statcast
-  - Featured
 date: "2025-10-30"
 share: false
 profile: false

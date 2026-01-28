@@ -6,7 +6,6 @@ tags:
   - Python
   - Biomechanics
   - Statcast
-  - Featured
 math: true
 share: false
 profile: false

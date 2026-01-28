@@ -5,7 +5,6 @@ tags:
   - R
   - Stan
   - Bayesian Modeling
-  - Featured
 date: "2026-01-25"
 share: false
 profile: false
