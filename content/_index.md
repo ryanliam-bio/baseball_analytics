@@ -15,7 +15,7 @@ sections:
       subtitle: 'Independent Baseball Researcher'
       text: |-
         <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-          {{< figure src="media/avatar.jpg" width="200px" class="rounded-full mx-auto mb-5" >}}
+          <img src="media/avatar.jpg" style="width: 200px; border-radius: 50%; margin-bottom: 20px;">
           
           <h1 style="margin-top: 0;">Liam Ryan</h1>
           <h3 style="color: #6c757d; margin-top: -10px;">Independent Baseball Researcher</h3>
