@@ -59,12 +59,6 @@ What I took from this experience:
 
 I worked 4 seasons for the Spartans and had the opportunity to support teams that played in the Redbox Bowl (2018), Pinstripe Bowl (2019), and Peach Bowl (2021).
 
- <div style="margin: 25px 0;">
-    <img src="gatorade-bath.jpg" alt="Narrowly dodging the Gatorade bath" style="display: block; max-width: 450px; width: 100%; border-radius: 4px; margin:
-  0 auto;">
-    <p style="font-size: 0.85em; color: #666; margin-top: 8px; text-align: center;">Peach Bowl, 2021 - Dodging the Gatorade bath</p>
-  </div>
-
 
 ---
 
