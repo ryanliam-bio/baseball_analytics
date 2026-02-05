@@ -8,7 +8,7 @@
     echo "Go version: $(go version || echo 'Go not available')"
     
     echo "=== Installing dependencies ==="
-    pnpm install --verbose --no-frozen-lockfile
+    pnpm install --verbose --no-frozen-lockfile --ignore-scripts=false
     
     echo "=== Running Hugo build ==="
     hugo --gc --minify -b $URL --logLevel debug --printI18nWarnings --printPathWarnings

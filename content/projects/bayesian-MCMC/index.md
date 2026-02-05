@@ -147,7 +147,7 @@ image:
   - **MCMC**: 4 chains, 10,000 iterations (2,000 warmup), max_treedepth = 10
   - **Priors**: Weakly informative; intercepts calibrated to empirical log-rates, team/pitcher abilities ~ N(0, 0.2)
   - **Convergence**: All Rhat < 1.01, bulk/tail ESS > 1,000
-  - **Stan methodology** Much of the model framework was adapted from bayesian modeling methodology described by Andrew Mack in his book Bayesian Sports Models in R. Questions
+  - **Stan methodology** Much of the model framework was adapted from bayesian modeling methodology described by Andrew Mack in his book Bayesian Sports Models in R. I would highly recommend his work and he can most easily be found on X @Gingfacekillah.
 
   The full annotated R script is available for download above.
 
