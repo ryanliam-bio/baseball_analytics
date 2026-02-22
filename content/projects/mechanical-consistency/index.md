@@ -34,7 +34,7 @@ Download Analysis Script (R)
 2. Is there a relationship between fastball velocity and mechanical repeatability?
 3. Which biomechanical metrics show the most/least variation?
 
-The focus here is on consistency itself- not command outcomes or injury correlations, which would require different datasets. This analysis was partially inspired by Driveline's stellar work exploring [how biomechanical markers relate to command.](https://sabr.org/analytics/presentations/2025)
+The focus here is on consistency itself- not command outcomes or injury correlations, which would require different datasets. This analysis was partially inspired by Driveline's stellar work exploring [how biomechanical markers relate to command.](https://www.drivelinebaseball.com/2026/02/the-interaction-of-biomechanics-and-command/)
 
 ---
 
