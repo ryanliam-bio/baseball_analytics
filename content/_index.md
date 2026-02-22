@@ -26,7 +26,7 @@ sections:
         </div>
         <div style="text-align: center;">
 
-        {{< icon name="envelope" pack="fas" >}} [Email Me](mailto:liam.ryan@comcast.net) | {{< icon name="link" pack="fas" >}} [LinkedIn](https://www.linkedin.com/in/liam-r-22912998/)
+        {{< icon name="envelope" pack="fas" >}} [Email Me](mailto:liam.ryan@comcast.net) | {{< icon name="link" pack="fas" >}} [LinkedIn](https://www.linkedin.com/in/liam-ryan-mi/)
 
         </div>
     design:
