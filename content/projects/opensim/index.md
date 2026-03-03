@@ -1,10 +1,10 @@
 ---
 title: "Markerless Pitching Biomechanics Pipeline"
 summary: "An end-to-end pipeline from smartphone video to OpenSim inverse dynamics - and an honest account of what single-camera analysis can and cannot tell you."
-date: 2026-03-02
+date: 2026-02-25
 tags:
-  - Python
   - Biomechanics
+  - Python
   - OpenSim
   - Baseball
 math: false
@@ -16,6 +16,8 @@ image:
   focal_point: "Smart"
   preview_only: true
 ---
+
+![Skeleton overlay at ball release](skeleton_header.png)
 
 ## Overview
 

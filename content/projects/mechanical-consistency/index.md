@@ -9,7 +9,7 @@ date: "2026-01-25"
 share: false
 profile: false
 math: true
-weight: 3
+weight: 7
 image:
   filename: "velo-scatter.png"
   caption: "Velocity vs Mechanical Consistency"

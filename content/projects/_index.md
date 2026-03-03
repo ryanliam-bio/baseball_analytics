@@ -11,8 +11,8 @@ design:
 sections:
   - block: collection
     content:
-      title: Baseball Projects
-      text: I enjoy deep diving Statcast data for fantasy, betting, and general research purposes. I am constantly seeking to expand the scope of my work and improve on previous iterations, but please enjoy my currently published projects and writeups.
+      title: Projects
+      text: Research and fantasy-based projects across biomechanics, Bayesian modeling, and Statcast analysis. I am continuously seeking to expand the scope of my work and improve on previous iterations, but please enjoy my currently published writeups.
       filters:
         folders:
           - projects
