@@ -131,8 +131,8 @@ Each limitation in this pipeline has a clearly actionable next step that could m
 |------------|-----------|
 | Single-camera depth ambiguity | Add a second synchronized camera at ~90 degrees- even an uncalibrated pair would clarify the forearm flip |
 | Forearm orientation at MER | 240fps capture improves temporal resolution through the flip window, reducing the double-differentiation spike and allowing for higher filter cutoff |
-| No ground reaction forces | Add two force plates to capture ground reaction forces throughout the full delivery and enable lower extremity moment estimation|
-| Landmark tracking in shadows | Controlled lighting to eliminate hard cast shadows; the full-body shadow behind the pitcher degrades background separation throughout the delivery, not just at MER |
+| No ground reaction forces | Add two force plates to capture ground reaction forces throughout the full delivery and enable lower extremity moment estimation |
+| Landmark tracking in shadows | Controlled lighting to eliminate hard cast shadows on the field background |
 | Delivery window manual selection | Automated event detection from wrist velocity peak and elbow extension rate |
 | Scale estimation with one camera | Static calibration frame at the start of each clip; pitcher stands in T-pose at known distance |
 
