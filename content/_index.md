@@ -12,16 +12,16 @@ sections:
   - block: markdown
     content:
       #title: 'Liam Ryan'
-      subtitle: 'Independent Baseball Researcher'
+      subtitle: 'Biomechanics & Baseball Analytics'
       text: |-
         <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
           <img src="media/avatar.jpg" style="width: 200px; border-radius: 50%; margin-bottom: 20px;">
           
           <h1 style="margin-top: 0;">Liam Ryan</h1>
-          <h3 style="color: #6c757d; margin-top: -10px;">Independent Baseball Researcher</h3>
+          <h3 style="color: #6c757d; margin-top: -10px;">Biomechanics & Baseball Analytics</h3>
         </div>
         <div style="text-align: center;">
-        I work in biomechanics and performance science, with a professional background supporting force plate measurement systems used in elite sport environments.
+        My background is rooted in engineering and biomechanics. I’m currently focused on independent baseball analytics research, building toward a role at the intersection of performance science and quantitative&nbsp;analysis.
 
         </div>
         <div style="text-align: center;">
