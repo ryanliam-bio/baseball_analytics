@@ -15,7 +15,7 @@ h1 {
 
 <div class="experience-content">
 
-My path to baseball analytics has been nonlinear, but each step has shaped how I approach performance questions. Working in biomechanics taught me how to measure what matters. Supporting a Power 5 football program taught me how to translate interdepartmental needs across complex organizations. Independent research taught me how to ask better questions with data.
+My background connects measurement technology, high-performance athletics, and independent research. At Kistler, I worked across MLB, NBA, NHL, and NFL organizations, elite performance facilities, and university research labs, giving me direct exposure to how force plate and motion capture systems get integrated into workflows that actually matter. At Michigan State, four years inside a Power 5 football program taught me how complex organizations function and how to communicate effectively across departments. Independent research is where I've built the analytical foundation to pursue questions I care about and demonstrate how I think through problems. 
 
 ---
 
