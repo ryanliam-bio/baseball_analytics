@@ -19,7 +19,7 @@ image:
 
 ### Overview
 
-This project builds on the foundation laid in [Bat Speed Analysis 1.0](/projects/bat-speed/), delivering on two open questions from that work: how quickly does bat speed become a reliable signal, and does the complexity of derived metrics like "impulse" actually add predictive value over raw speed?
+This project builds on the foundation laid in [Bat Speed Analysis 1.0](https://ryanliam-bio.github.io/baseball_analytics/projects/bat-speed/), delivering on two open questions from that work: how quickly does bat speed become a reliable signal, and does the complexity of derived metrics like "impulse" actually add predictive value over raw speed?
 
 Data was pulled via a chunked Savant scrape using `baseballr` at weekly intervals across the full 2025 regular season. Initially, there were consistent issues getting the first 1-2 months of data but this was fairly easily resolved by increasing fixed request delays in retry catches. Our final dataset contained ~300k swings from 600+ batters. While BaseballSavant has its own "Competitive Swing" designation, I chose to filter based on an IQR threshold (below Q1 − 1.5×IQR per player) before any aggregation.
 
