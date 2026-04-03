@@ -18,10 +18,6 @@ image:
   preview_only: false
 ---
 
- <a href="2025_model_complete_backup.R" download="2025 Bayesian Team Strength" class="btn btn-primary">
-  📥  Download Full R Script
-  </a>
-
 ---
  ### Motivation
 
@@ -147,9 +143,9 @@ image:
   - **MCMC**: 4 chains, 10,000 iterations (2,000 warmup), max_treedepth = 10
   - **Priors**: Weakly informative; intercepts calibrated to empirical log-rates, team/pitcher abilities ~ N(0, 0.2)
   - **Convergence**: All Rhat < 1.01, bulk/tail ESS > 1,000
-  - **Stan methodology** Much of the model framework was adapted from bayesian modeling methodology described by Andrew Mack in his book Bayesian Sports Models in R. I would highly recommend his work and he can most easily be found on X @Gingfacekillah.
+  - **Stan methodology**: Much of the model framework was adapted from Bayesian modeling methodology described by Andrew Mack in his book Bayesian Sports Models in R. I would highly recommend his work and he can most easily be found on X @Gingfacekillah.
 
-  The full annotated R script is available for download above.
+  The full annotated R script is available on request — feel free to reach out.
 
 
 
