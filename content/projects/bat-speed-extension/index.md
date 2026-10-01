@@ -17,6 +17,20 @@ image:
   preview_only: false
 ---
 
+> [!WARNING] Correction (September 2026)
+> While building [Bat Speed Analysis 3.0](https://ryanliam-bio.github.io/baseball_analytics/projects/bat-speed-three/), I found a filtering error that changes several findings on this page. The IQR filter described below was only applied to the percentile table and whiff rates. The stabilization, count type, pitch type, and consistency analyses all ran on the unfiltered data, which still included ~17k check swings, bunts, etc. with median bat speed 44 mph. Corrected numbers, using the same 2025 data and code with the filter applied:
+>
+> - **Stabilization:** bat speed reaches r = 0.90 with full-season average in under **20 swings**, not ~50 (r = 0.86 at 10 swings, 0.91 at 20).
+> - **Count type:** hitter's count swings do *not* stabilize faster. Comparing the same hitters, all three count types reach r = 0.90 in 21-22 swings with the filter. The original gap came from non-competitive swings: 6.3% of pitcher's count swings and 5.3% of neutral count swings (where most bunts happen), vs 3.4% of hitter's count swings.
+> - **Consistency:** the correlation between average bat speed and within-season SD is **−0.16** (also −0.16 for 600+ swing regulars), not −0.45. The original number came almost entirely from bunts, which slower swingers take far more often.
+> - **Pitch type:** the published r = −0.05 to 0.09 is incorrect; a hitter's bat speed on one pitch type closely tracks his bat speed on another (r = 0.85 to 0.96).
+> - **Count and fastball frequency correlations:** I couldn't reproduce these exactly, and I believe this leaks too much pitcher approach into the analysis. 3.0 measures that directly and shows the same hitter swings 1.9 mph slower in pitcher's counts than neutral counts, and basically no faster in hitter's counts.
+> - **Technical notes:** the 50-swing rolling windows were used for the player trend charts. The stabilization curve compares each hitter's first n swings to his full-season average (250+ swings).
+> - **Data:** my weekly pulls hit Savant's 25,000-row export cap, dropping ~7% of 2025 swings (mostly the first day of each week). This doesn't change any of the above.
+>
+> Still valid: the "Average Bat Speed Is Still King" table and percentile sweep, which were built on filtered data, and the changeup vs fastball bat speed gap (71.8 vs 70.8 mph filtered- 3.0 explains why). The original text and charts are left below as published. [verify_2_0.py](verify_2_0.py) reproduces every corrected number from the original 2025 data; it runs against [swings_df_backup.rds](swings_df_backup.rds) (7.5 MB), the 2025 swing data as 2.0 used it.
+
+
 ### Overview
 
 This project builds on the foundation laid in [Bat Speed Analysis 1.0](https://ryanliam-bio.github.io/baseball_analytics/projects/bat-speed/), delivering on two open questions from that work: how quickly does bat speed become a reliable signal, and does the complexity of derived metrics like "impulse" actually add predictive value over raw speed?
