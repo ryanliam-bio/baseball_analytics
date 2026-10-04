@@ -7,7 +7,7 @@ tags:
   - MLB
 date: "2026-07-30"
 share: false
-weight: 2
+weight: 4
 profile: false
 # Grid thumbnail only. Do not put "cover" in the filename — the theme renders
 # any bundled image matching *cover* as a full-width page banner.

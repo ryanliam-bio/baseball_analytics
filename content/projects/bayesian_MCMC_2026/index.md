@@ -10,7 +10,7 @@ date: "2026-03-25"
 share: false
 profile: false
 math: true
-weight: 4
+weight: 2
 image:
   filename: "win_projections.png"
   caption: ""
