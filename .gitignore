@@ -67,3 +67,9 @@ Desktop.ini
 
 *.log
 npm-debug.log*
+
+# ============================================================================
+# Raw mocap footage (GitHub rejects files > 100 MB; keep source video out of git)
+# ============================================================================
+content/projects/opensim-v2/*-trimmed.mp4
+content/projects/opensim-v2/*.llc
