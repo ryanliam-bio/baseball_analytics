@@ -132,7 +132,7 @@ inclination to just get the front shoulder out of the way rather than completing
 #### Best vs Best
 
 Typical is the fair comparison, but I wanted to show each session at its best. For 2.0 that's easy as we were able to roughly calculate velocity 
-and throw 5 represented my peak around 76 mph. 1.0 is harder because the ball was only trackable once, so we used peak wrist speed as a very rough
+and throw 5 represented my peak in the mid 60s. 1.0 is harder because the ball was only trackable once, so we used peak wrist speed as a very rough
 proxy. I was hoping to put some numbers to my improvement, either from a velocity perspective or a movement perspective, but the data quality in
 1.0 was disappointingly lacking, to put it mildly.
 
@@ -173,7 +173,7 @@ The 8x conclusion comes from event timing and ball physics. The original 1.0 vid
 - **Filtering:** 4th-order zero-lag Butterworth at 12 Hz for both sessions (1.0 re-filtered from its raw landmarks)
 - **Events:** peak leg lift = peak lead knee height; foot plant = lead heel/toe within 2.5 cm of its planted height; release = peak wrist speed
 - **Stats:** Welch 95% confidence intervals, change = 2.0 minus 1.0
-- **Velocity:** ball found over ~15 frames after release as a straight-line, constant-speed track (RANSAC); speed = ball-widths per frame × 73.7 mm × 240 fps, using the session-median ball size (19 px) since every throw went to the same target. Image-plane speed only, so roughly ±3-4 mph per throw; throw 3 checked by hand (69 mph both ways).
+- **Velocity:** ball found over ~15 frames after release as a straight-line, constant-speed track (RANSAC); speed = ball-widths per frame × 73.7 mm × 240 fps, using the session-median ball size (19 px) since every throw went to the same target. Ranks throws well, but a two-camera 3D ball fit (2.1) showed ball-as-ruler reads 16–28% fast because the thresholded ball measures smaller than it is, so speeds here are adjusted down.
 - **Best throws:** 2.0 by ball speed. 1.0 by peak wrist speed, picked as the proxy before testing it: across the 20 tracked 2.0 throws it correlates with ball speed at r = 0.64 (95% CI 0.41–0.81). 1.0 throw 1 skipped for a wrist tracking jump at release.
 - **Time-scale check:** the same ball-as-ruler speed on 1.0 throw 4, plus 1.0 event intervals vs 2.0's
 - **Calibration:** 7×5 ChArUco, 107.0 mm squares (measured; both diagonals match a true rectangle), lens error 0.27 px, focal length ±1.1%
