@@ -166,7 +166,7 @@ The 8x conclusion comes from event timing and ball physics. The original 1.0 vid
 
 ### Technical Notes
 
-- **Software:** Python 3.11, MediaPipe 0.10.14 (legacy Pose, complexity 1, same as 1.0), OpenCV 4.11 (ChArUco), PyAV, NumPy, SciPy, pandas, matplotlib. OpenSim 4.5 comes back in 2.1.
+- **Software:** Python 3.11, MediaPipe 0.10.14 (legacy Pose, complexity 1, same as 1.0), OpenCV 4.11 (ChArUco), PyAV, NumPy, SciPy, pandas, matplotlib. OpenSim 4.6 comes back in [2.1](https://ryanliam-bio.github.io/baseball_analytics/projects/opensim-v2/).
 - **Capture:** Galaxy S26 Ultra Slow motion mode, 1080p, 240 fps stored as 8x slowed 30 fps; 22 throws on Oct 2, 2026. 1.0: Galaxy S23 Ultra, 720p, 240 fps / 8x, 6 throws (Feb 2026).
 - **Pose:** every frame of the 240 fps clips, matching 1.0's 240 fps captures, since legacy MediaPipe smooths frame-to-frame
 - **Scale and axes:** nose-to-ankle = 87% of my height (6'3") while set before throwing, from Winter's anthropometric tables (1.0 used 94%, which ignored ankle height); fixed origin; depth zeroed, so in-plane metrics only
