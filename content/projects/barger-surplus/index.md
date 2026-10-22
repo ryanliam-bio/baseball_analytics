@@ -18,7 +18,7 @@ weight: 1
 > scenarios, priced at FanGraphs' 2026 free-agent rates, give an **expected surplus of $61m** and a **44% chance
 > of clearing $50m**. A 3+ WAR breakout carries 55% of the value.
 
-This page backs up the pricing behind my player evaluation for the Tigers 2026 analyst questionnaire. The scouting case (contact point, chase, popups) is in the written answer; this page covers how the dollars were built.
+This page backs up my player evaluation for the Tigers 2026 analyst questionnaire. It shows how the dollars were built and where every number in the written answer comes from ([below](#every-number-in-the-write-up)).
 
 ## Scenarios
 
@@ -111,12 +111,35 @@ Every outcome, with its probability:
 - **The weights are judgment, not fitted.** Each scenario's wRC+ is anchored to a 2025 split or a comparison group. How often each happens is my read.
 - **One full season.** 2025 is his only full MLB season, and he played 28 games in 2026 before surgery.
 
+## Every number in the write-up
+
+Unless noted, percentiles are among 2025 MLB regular-season hitters with 300+ PA, computed as rank / n with the hitter included (the way Orr's app displays them). The § numbers refer to sections of `supporting_calcs.py`.
+
+| Claim | Value | Source and method |
+|---|---|---|
+| 1.9 fWAR in three years; 107 wRC+; 24.1% K% | | [FanGraphs](https://www.fangraphs.com/players/addison-barger/24598/stats) |
+| Control through age 30 | Free agent after 2030 | FanGraphs service time (1.103 entering 2026); born Nov. 12, 1999 |
+| Contact point, 6th to 60th percentile | 25.1 to 31.6 in out front | Savant [Swing Path / Attack Angle](https://baseballsavant.mlb.com/leaderboard/bat-tracking/swing-path-attack-angle), contact depth vs. batter, 2024 vs. 2025, 300+ competitive swings (§1) |
+| Bat speed 75.9 mph | 74.4 mph (87th pct) in 2024, 75.9 (94th) in 2025 | Same leaderboard (§1) |
+| Hard-hit rate 38% to 51% | 38.3% to 51.0% | Savant [custom leaderboard](https://baseballsavant.mlb.com/leaderboard/custom), EV 95+ mph (§2) |
+| 83rd-percentile damage rate, 67th-percentile SEAGER | | Robert Orr's Hitter Percentiles app, MLB 2025 regular season, 300+ PA. Data: [Py-Damage](https://github.com/notthebobbyorr/Py-Damage). SEAGER: [Orr, Baseball Prospectus](https://www.baseballprospectus.com/news/article/86572/the-crooked-inning-corey-seager-rangers/) |
+| Worse-than-average chase and whiff | Chase 31.0% (median 27.7%), whiff 26.1% (median 24.4%) | Savant custom leaderboard (§3) |
+| Chase of 21% in April, 42% in July, 25% in September | | FanGraphs monthly splits, O-Swing% |
+| Sub-27% chase: .372 vs. .326 median xwOBA | 7 vs. 26 hitters | Savant custom leaderboard, 2025, 300+ PA (§4). Group: bat speed at or above the 85th percentile and squared-up per swing at or below the 35th (n=33, Barger included). Under 27% chase: Judge, Schwarber, Acuña, Kurtz, Chapman, Wood, Baty |
+| 13% of fastballs in play popped up (96th percentile) | 25 of 192; median 6.8% | Statcast Search, four-seamers/sinkers/cutters, popups per batted ball (§5) |
+| 99th-percentile arm | 96.5 mph, 3rd of 395 | Savant [Arm Strength](https://baseballsavant.mlb.com/leaderboard/arm-strength), 2025, 50+ throws (§6) |
+| .828 AAA OPS vs. lefties | 2023-24, 170 PA (.369 BABIP) | MLB Stats API / [MiLB.com](https://www.milb.com/player/addison-barger-680718) splits |
+| Okamoto keeping 3B; elbow surgery | | MLB.com: [Okamoto signing](https://www.mlb.com/news/kazuma-okamoto-blue-jays-deal), [Barger surgery](https://www.mlb.com/news/addison-barger-elbow-surgery-blue-jays) |
+| $61m expected; P(≥$50m) 44%; breakout over half | | `barger_surplus.py`, above |
+
 ## Code
 
-[`code/barger_surplus.py`](code/barger_surplus.py) reproduces every number on this page. It needs only numpy, with no data downloads:
+- [`code/barger_surplus.py`](code/barger_surplus.py) reproduces every number in the surplus model. It needs only numpy, with no data downloads.
+- [`code/supporting_calcs.py`](code/supporting_calcs.py) rebuilds the Statcast numbers in the table above from public Savant endpoints. It needs pandas and takes about a minute.
 
 ```
 python barger_surplus.py
+python supporting_calcs.py
 ```
 
 ## Sources
