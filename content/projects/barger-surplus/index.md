@@ -1,5 +1,5 @@
 ---
-title: "Addison Barger: $50m of Surplus Value"
+title: "Addison Barger: &#36;50m of Surplus Value"
 summary: "A scenario-weighted surplus value model for Addison Barger's four remaining control years with the Blue Jays (2027-30)."
 date: "2026-10-22"
 tags:
@@ -9,25 +9,35 @@ tags:
 share: false
 profile: false
 math: false
-weight: 1
+build:
+  list: never
 ---
 
 > [!abstract] Summary
-> Addison Barger will generate $50m in surplus value for the Blue Jays. He's accrued 1.9 fWAR in three seasons,
+> Addison Barger will generate &#36;50m in surplus value for the Blue Jays. He's accrued 1.9 fWAR in three seasons,
 > but Toronto controls him through 2030 (his age-30 season) at pre-arb and arbitration prices. Four weighted
-> scenarios, priced at FanGraphs' 2026 free-agent rates, give an **expected surplus of $61m** and a **44% chance
-> of clearing $50m**. A 3+ WAR breakout carries 55% of the value.
+> scenarios, priced at FanGraphs' 2026 free-agent rates, give an **expected surplus of &#36;61m** and a **44% chance
+> of clearing &#36;50m**. A 3+ WAR breakout carries 55% of the value.
 
 This page backs up my player evaluation for the Tigers 2026 analyst questionnaire. It shows how the dollars were built and where every number in the written answer comes from ([below](#every-number-in-the-write-up)).
 
 ## Scenarios
 
-| Scenario | Weight | wRC+ | PA, 2027-30 | Salary, 2027-30 ($m) | Basis |
-|---|---|---|---|---|---|
-| Bust | 15% | 85 | 250, 200, 0, 0 | 0.85, 1.2, non-tendered | Elbow or back problems recur; part-timer, non-tendered after 2028 |
-| Platoon | 30% | 108 | 350, 400, 400, 400 | 0.85, 1.5, 2.5, 3.5 | Strong side only (115 wRC+ vs. RHP in 2025, regressed) |
-| 2025 repeat | 35% | 107 | 450, 575, 575, 575 | 0.85, 2.5, 4.5, 7.0 | 2025 again, with a normal platoon split |
-| Breakout | 20% | 130 | 500, 625, 625, 625 | 0.85, 4.0, 9.0, 14.0 | Chase gains stick: about .370 xwOBA, the median for fast swingers with sub-27% chase |
+| Scenario | Weight | wRC+ | Basis |
+|---|---|---|---|
+| Bust | 15% | 85 | Elbow or back problems recur; part-timer, non-tendered after 2028 |
+| Platoon | 30% | 108 | Strong side only (115 wRC+ vs. RHP in 2025, regressed) |
+| 2025 repeat | 35% | 107 | 2025 again, with a normal platoon split |
+| Breakout | 20% | 130 | Chase gains stick: about .370 xwOBA, the median for fast swingers with sub-27% chase |
+
+**Plate appearances and salary by season**
+
+| Scenario | 2027 | 2028 | 2029 | 2030 |
+|---|---|---|---|---|
+| Bust | 250 PA, &#36;0.85m | 200 PA, &#36;1.2m | Non-tendered | |
+| Platoon | 350 PA, &#36;0.85m | 400 PA, &#36;1.5m | 400 PA, &#36;2.5m | 400 PA, &#36;3.5m |
+| 2025 repeat | 450 PA, &#36;0.85m | 575 PA, &#36;2.5m | 575 PA, &#36;4.5m | 575 PA, &#36;7.0m |
+| Breakout | 500 PA, &#36;0.85m | 625 PA, &#36;4.0m | 625 PA, &#36;9.0m | 625 PA, &#36;14.0m |
 
 The weights and salaries are my judgment calls. 2027 is his last pre-arb season. The arbitration salaries are assumptions, and the sensitivity tables below vary them.
 
@@ -44,7 +54,7 @@ FanGraphs-style, per 600 PA:
 
 ## From WAR to dollars
 
-- **Market value:** the league minimum ($0.8m) plus WAR x $/WAR. The rates come from Ben Clemens's 2026 free-agent study: **$6.74m / $8.51m / $12.84m per WAR** for players projected at 0-1 / 1-2 / 2+ WAR, in 2025 dollars.
+- **Market value:** the league minimum (&#36;0.8m) plus WAR x &#36;/WAR. The rates come from Ben Clemens's 2026 free-agent study: **&#36;6.74m / &#36;8.51m / &#36;12.84m per WAR** for players projected at 0-1 / 1-2 / 2+ WAR, in 2025 dollars.
 - **Inflation:** market value grows 5% a year.
 - **Surplus:** market value minus salary, discounted 5% a year to 2027.
 - **Non-tender:** arbitration years work like team options, which is what limits the bust case's losses.
@@ -53,32 +63,32 @@ FanGraphs-style, per 600 PA:
 
 | Scenario | Weight | WAR, arm intact / lost | Salary | Surplus, arm intact / lost |
 |---|---|---|---|---|
-| Bust | 15% | -0.2 | $2.0m | -$2m |
-| Platoon | 30% | 5.1 / 3.5 | $8.3m | $44m / $22m |
-| 2025 repeat | 35% | 6.9 / 4.7 | $14.8m | $55m / $32m |
-| Breakout | 20% | 14.2 / 11.7 | $27.9m | $179m / $144m |
-| **Expected** | | | | **$61m** |
+| Bust | 15% | -0.2 | &#36;2.0m | -&#36;2m |
+| Platoon | 30% | 5.1 / 3.5 | &#36;8.3m | &#36;44m / &#36;22m |
+| 2025 repeat | 35% | 6.9 / 4.7 | &#36;14.8m | &#36;55m / &#36;32m |
+| Breakout | 20% | 14.2 / 11.7 | &#36;27.9m | &#36;179m / &#36;144m |
+| **Expected** | | | | **&#36;61m** |
 
 Every outcome, with its probability:
 
 | Surplus | Probability | Outcome |
 |---|---|---|
-| -$2m | 15.0% | Bust |
-| $22m | 9.0% | Platoon, arm lost |
-| $32m | 10.5% | 2025 repeat, arm lost |
-| $44m | 21.0% | Platoon, arm intact |
-| $55m | 24.5% | 2025 repeat, arm intact |
-| $144m | 6.0% | Breakout, arm lost |
-| $179m | 14.0% | Breakout, arm intact |
+| -&#36;2m | 15.0% | Bust |
+| &#36;22m | 9.0% | Platoon, arm lost |
+| &#36;32m | 10.5% | 2025 repeat, arm lost |
+| &#36;44m | 21.0% | Platoon, arm intact |
+| &#36;55m | 24.5% | 2025 repeat, arm intact |
+| &#36;144m | 6.0% | Breakout, arm lost |
+| &#36;179m | 14.0% | Breakout, arm intact |
 
-- **Mean:** $61m. **Median:** $44m. **P(≥$50m):** 44%.
-- **Concentration:** the breakout supplies 55% of the expected value. In that case he produces 13.4 WAR for $27.9m, about $2.1m per win.
+- **Mean:** &#36;61m. **Median:** &#36;44m. **P(≥&#36;50m):** 44%.
+- **Concentration:** the breakout supplies 55% of the expected value. In that case he produces 13.4 WAR for &#36;27.9m, about &#36;2.1m per win.
 
 ## Sensitivity
 
-**Expected surplus ($m) by breakout probability and pricing.** The breakout probability is moved to or from the 2025-repeat case.
+**Expected surplus (&#36;m) by breakout probability and pricing.** The breakout probability is moved to or from the 2025-repeat case.
 
-| P(breakout) | Tiered $/WAR | One rate ($11.23m) |
+| P(breakout) | Tiered &#36;/WAR | One rate (&#36;11.23m) |
 |---|---|---|
 | 5% | 43.0 | 56.0 |
 | 10% | 49.1 | 59.9 |
@@ -89,25 +99,25 @@ Every outcome, with its probability:
 
 | P(arm intact) | Expected surplus |
 |---|---|
-| 40% | $54.7m |
-| 70% (base) | $61.2m |
-| 90% | $65.5m |
+| 40% | &#36;54.7m |
+| 70% (base) | &#36;61.2m |
+| 90% | &#36;65.5m |
 
 **Arbitration salaries, scaled across 2028-30:**
 
-| Multiplier | Mean | Median | P(≥$50m) |
+| Multiplier | Mean | Median | P(≥&#36;50m) |
 |---|---|---|---|
-| 0.75x | $64.0m | $45.2m | 44% |
-| 1.00x | $61.2m | $43.5m | 44% |
-| 1.25x | $58.3m | $41.8m | 44% |
-| 1.50x | $55.5m | $40.2m | 20% |
-| 2.00x | $49.8m | $36.8m | 20% |
+| 0.75x | &#36;64.0m | &#36;45.2m | 44% |
+| 1.00x | &#36;61.2m | &#36;43.5m | 44% |
+| 1.25x | &#36;58.3m | &#36;41.8m | 44% |
+| 1.50x | &#36;55.5m | &#36;40.2m | 20% |
+| 2.00x | &#36;49.8m | &#36;36.8m | 20% |
 
-**Pessimistic weights** (bust 30%, platoon 35%, repeat 20%, breakout 15%, arm 50%): **$43.6m expected, 25% chance of clearing $50m.**
+**Pessimistic weights** (bust 30%, platoon 35%, repeat 20%, breakout 15%, arm 50%): **&#36;43.6m expected, 25% chance of clearing &#36;50m.**
 
 ## Limitations
 
-- **The $50m line sits close to the 44%.** A quarter of the probability (2025 repeat, arm intact) clears it by under $5m. Arbitration awards 50% higher drop that case below the line, and P(≥$50m) falls to 20%.
+- **The &#36;50m line sits close to the 44%.** A quarter of the probability (2025 repeat, arm intact) clears it by under &#36;5m. Arbitration awards 50% higher drop that case below the line, and P(≥&#36;50m) falls to 20%.
 - **The weights are judgment, not fitted.** Each scenario's wRC+ is anchored to a 2025 split or a comparison group. How often each happens is my read.
 - **One full season.** 2025 is his only full MLB season, and he played 28 games in 2026 before surgery.
 
@@ -130,7 +140,7 @@ Unless noted, percentiles are among 2025 MLB regular-season hitters with 300+ PA
 | 99th-percentile arm | 96.5 mph, 3rd of 395 | Savant [Arm Strength](https://baseballsavant.mlb.com/leaderboard/arm-strength), 2025, 50+ throws (§6) |
 | .828 AAA OPS vs. lefties | 2023-24, 170 PA (.369 BABIP) | MLB Stats API / [MiLB.com](https://www.milb.com/player/addison-barger-680718) splits |
 | Okamoto keeping 3B; elbow surgery | | MLB.com: [Okamoto signing](https://www.mlb.com/news/kazuma-okamoto-blue-jays-deal), [Barger surgery](https://www.mlb.com/news/addison-barger-elbow-surgery-blue-jays) |
-| $61m expected; P(≥$50m) 44%; breakout over half | | `barger_surplus.py`, above |
+| &#36;61m expected; P(≥&#36;50m) 44%; breakout over half | | `barger_surplus.py`, above |
 
 ## Code
 
