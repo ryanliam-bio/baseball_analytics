@@ -29,17 +29,19 @@ The pipeline connects four components:
 1. **Posterior-as-prior**: Shrink 2025 Stan posterior toward the league mean, building a foundation from last year's analysis while acknowledging year-to-year regression
 2. **PECOTA adjustment**: Blend in projected offensive and pitching quality, weighted by how much a roster has actually changed
 3. **Season simulation**: Draw team strength samples and simulate all 2,430 games with game-specific starter assignment
-4. **Evaluation**: Calibrate hyperparameters on 2023–2025 out-of-sample seasons; evaluate against null baseline on MAE, RMSE, Spearman rank correlation, and prediction interval coverage
+4. **Evaluation**: Calibrate hyperparameters on 2023–2025 (each season projected from the prior year's posterior); evaluate against null baseline on MAE, RMSE, Spearman rank correlation, and prediction interval coverage
 
 ---
 
 ### Key Results
 
+**How it held up.** These projections were built from 2025 data and the March 20 PECOTA snapshot only, and published in early April. Against the final 2026 standings they finished with an MAE of **6.71 wins** (RMSE 7.74, Spearman 0.67), compared with 8.27 for preseason market win totals (as of March 24), 7.26 for regressed 2025 win totals, and 8.50 for 81 wins across the board. 25 of 30 teams finished inside their 80% interval. One season is a small sample, so I'd call that encouraging rather than conclusive: the paired bootstrap 95% interval on the gap to the market runs from 0.3 to 2.8 wins in the model's favor.
+
 **PHI, MIL, and LAD lead the 2026 projections** at 89–93 wins. NYY and TOR headline the AL at 88 wins each, while the AL Central projects tightly between 76–83 wins. Full division tables are [below](#2026-projected-win-totals).
 
-**Out-of-sample accuracy** (2023–2025 calibration seasons, 90 team-seasons):
-- **MAE: 7.51 wins** — a 21.7% improvement over the 81-win null baseline (MAE 9.32)
-- **80% interval coverage: 81.1%** — near-perfect calibration against the expected 80%
+**Backtest accuracy** (2023–2025, 90 team-seasons; the hyperparameters were tuned on these same three seasons, so treat these as in-sample):
+- **MAE: 7.51 wins** — a 19.4% improvement over the 81-win null baseline (MAE 9.32)
+- **80% interval coverage: 81.1%** against the expected 80%
 - Largest misses are teams that both significantly changed their pythagorean win % YoY and over/underperformed that expectation (BAL 2023: +25 wins vs projected; CHW 2024: −28 wins)
 
 **Methodology in plain English**: The model starts from what it learned watching every 2025 game, i.e. how well each team attacked and prevent runs across four run-event types, and how each pitcher performed; then shrinks those estimates toward the league mean to account for year-to-year regression. PECOTA projections for 2026 rosters are blended in, with more weight given to teams that changed their roster substantially. Starters are sampled game-by-game in proportion to their projected starts rather than assuming a fixed rotation, and a separate reliever adjustment updates each team's bullpen prior from 2025 rather than carrying it forward unchanged. The full 2,430-game schedule is then simulated 1,000 times to generate win total distributions.
@@ -100,7 +102,7 @@ The preseason posterior is constructed by sampling from the prior distributions:
 
 $$\text{att}_r^{(d)}, \text{def}_r^{(d)} \sim \mathcal{N}(\mu_r, \sigma_r), \quad d = 1, \ldots, 4000$$
 
-Each sample is row-centered to enforce the sum-to-zero constraint from the Stan model's transformed parameters block. Individual game win probabilities are simulated using the same Dixon-Coles Negative Binomial / Poisson structure as the 2025 model.
+Each sample is row-centered to enforce the sum-to-zero constraint from the Stan model's transformed parameters block. Individual game win probabilities are simulated using the same attack/defense Negative Binomial / Poisson structure as the 2025 model.
 
 #### GS-Proportional Rotation Sampling
 
@@ -286,11 +288,11 @@ The model simulates the full 2,430-game schedule 1,000 times, drawing a fresh po
 
 ### Model Evaluation
 
-Hyperparameters were calibrated using a grid search across 3 out-of-sample seasons (2023, 2024, 2025), where each year's Stan posterior was fit independently on that year's data with no forward leakage. The scoring target is mean Pythagorean RMSE across all three calibration years; Pythagorean wins filter one-run-game luck that the model cannot and should not explain.
+Hyperparameters were calibrated using a grid search across 3 seasons (2023, 2024, 2025), where each season was projected from the previous year's Stan posterior, so there's no forward leakage in the priors. The same three seasons were used both to pick the hyperparameters and to score them, though, so the numbers below are in-sample; the 2026 results at the top are the first true out-of-sample test. The grid was scored on mean Pythagorean RMSE and on MAE (the two agreed; see the caveats below). One more caveat: the grid tuned a single attack weight (0.10), while the published projections used the continuity-weighted attack blend described above, so the backtested configuration and the published one aren't identical.
 
 **Optimal hyperparameters:** shrinkage = 0.80, attack_weight = 0.10, defense_weight = 0.10, bullpen_weight = 0.35, pitcher_mean_weight = 0.50
 
-#### Pooled Out-of-Sample Performance (2023–2025, 90 team-seasons)
+#### Pooled Backtest Performance (2023–2025, 90 team-seasons, in-sample)
 
 |                  | RMSE      | MAE       | Spearman ρ | Pearson r |
 |------------------|-----------|-----------|------------|-----------|
@@ -300,7 +302,7 @@ Hyperparameters were calibrated using a grid search across 3 out-of-sample seaso
 **21.7% RMSE improvement over the null baseline.** Model bias is +0.16 wins, effectively zero systematic over- or under-projection.
 
 **Prediction interval coverage:**
-- 80% interval (q10–q90): 73/90 team-seasons = **81.1%** (expected 80%) | near-perfect calibration
+- 80% interval (q10–q90): 73/90 team-seasons = **81.1%** (expected 80%) | in-sample; 25/30 in 2026
 - 50% interval (q25–q75): 49/90 team-seasons = **54.4%** (expected 50%) | within the ±8pp margin at n=90
 
 #### Calibration Curve
@@ -333,6 +335,33 @@ With only 3 calibration years (90 team-seasons), conclusions carry meaningful un
 
 ---
 
+### Post-season audit and rebuild (October 2026)
+
+Once the season wrapped I went back through this whole pipeline with fresh eyes, partly to check the result above and partly because a backtest tuned on the same seasons it's scored on doesn't tell you much. A few things turned up, and I rebuilt the model around fixing them.
+
+**Data.** Baseball Savant's CSV export silently caps at 25,000 rows and returns the newest pitches first, so a weekly pull can lose part of its oldest day. In the 2025 data this projection was built on, 189 of 2,430 games were missing at least one scoring play (about 3% of all runs). The rebuild pulls one day at a time, checks every pull against the cap, and validates every game against the official final score from the MLB Stats API: 12,145 of 12,148 games from 2021–2025 pass. I also found that the offensive adjustment above credited hitters who changed teams to their 2025 club rather than their new one (the arguments of one `coalesce()` call were in the wrong order), so offseason moves were partly missed on the hitting side.
+
+**Model.** The rebuilt Stan model splits each game into starter and bullpen phases with an exposure offset (outs recorded), so a starter who goes four innings and one who goes seven are compared on the same clock, and the home team's skipped bottom of the 9th isn't mistaken for weaker hitting. Starter and bullpen effects get regression priors on reliability-shrunk K-BB% and CSW%, and every hierarchical scale is learned rather than fixed. PECOTA comes in as a noisy measurement of each effect (DRC+ and baserunning for offense, DRP/FRAA for fielding, DRA− for starters and relievers) and is combined by precision weighting. Expected wins come from convolving each side's run distributions rather than from simulation noise.
+
+**Validation.** Every season from 2022 to 2025 is projected from the previous season's posterior plus that spring's PECOTA, with each season held out in turn:
+
+| | MAE (wins) | RMSE |
+|---|---|---|
+| Rebuilt model | 7.71 | 9.57 |
+| Regressed prior-year Pythagorean wins | 8.30 | 10.3 |
+| Regressed prior-year wins | 8.48 | 10.5 |
+| 81 wins | 10.0 | 12.8 |
+
+Against preseason market win totals (2023–2025 only) it's 7.45 vs 7.68, close enough that I'd call it level.
+
+**What did and didn't work.** The most useful lesson was about tuning. With only four seasons, which hyperparameter setting looks best flips from year to year depending on how spread out the standings ended up, so picking the single best one did worse on held-out seasons (8.14) than simply averaging across all of them (7.71). The K-BB% pitcher priors clearly earn their place: leaving them out costs 49.7 in LOO expected log predictive density (SE 10.4). Same-season xwOBA as a pitcher input dominates the within-season fit but adds nothing to next-season projections. wOBA vs DRC+ as the offensive signal made no difference, roster-continuity weighting was slightly worse, and negative binomial for 3- and 4-run plays was no better than Poisson.
+
+**Intervals.** Done honestly, the original intervals were too narrow (80% intervals covered 66% of held-out outcomes). Inflating the prior variances by a factor chosen on held-out seasons brings that to 79%.
+
+**Where that leaves 2026.** The rebuilt model didn't exist in April, so its 2026 number is a backtest, not a forecast: 7.44 wins MAE, behind the original's 6.71, with most of the gap coming from five teams (SEA, SDP, CHW, MIL, SFG). The original projections above stay as the published record, and the rebuild is what I'll run for 2027.
+
+---
+
 ### Limitations
 
 **Team-level offense modeling**: The offensive adjustment aggregates all projected PA at the team level. This treats a team adding a +4 WAR outfielder identically to a team with +4 WAR spread across six marginal upgrades. I'll be following this up with a full scale player-level model.
@@ -349,8 +378,8 @@ With only 3 calibration years (90 team-seasons), conclusions carry meaningful un
 
 ### Technical Notes
 
-- **Software**: R 4.4, rstan, tidyverse, baseballr
-- **Prior source**: Stan posterior from ~2,400 verified 2025 regular-season games
+- **Software**: R 4.2.2, rstan, tidyverse, baseballr
+- **Prior source**: Stan posterior from the 2025 regular season (~2,420 games). A post-season check against official box scores found 189 of those games missing at least one scoring play, about 3% of all 2025 runs, because the weekly Savant pulls ran into the export's 25,000-row cap
 - **Projection source**: PECOTA 2026 (March 20 snapshot), depth-chart-only players
 - **Simulation**: 1,000 season draws × 2,430 games; GS-proportional starter pools pre-sampled as $N_{\text{sim}} \times N_{\text{games}}$ matrix
 - **Calibration**: Grid search over shrinkage ∈ {0.7, 0.8}, attack_weight ∈ {0.1–0.4}, defense_weight ∈ {0.00–0.15}, bullpen_weight ∈ {0.15–0.45}, pitcher_mean_weight ∈ {0.0–0.5}; 200 simulations × 3 years per grid point; pitcher_mean_weight refined via targeted sweep to 0.50

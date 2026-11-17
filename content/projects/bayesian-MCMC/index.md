@@ -19,6 +19,16 @@ image:
 ---
 
 ---
+
+> **October 2026 update:** There are three problems with the 2025 fit described below that are worth flagging. First, the "starting pitcher" 
+for each side was pulled from the first *scoring* play rather than the first pitch, and then assigned to the wrong side of the matchup, 
+so each pitcher's estimate soaked up his own team's offense instead of the lineup he faced. Second, because of that same lookup, any game in 
+which either team was shut out had no "starter" and was dropped: 331 of the 2,430 games in 2025. I fixed both of those last spring when I refit 
+2025 for the [2026 projection model](https://ryanliam-bio.github.io/baseball_analytics/projects/bayesian_mcmc_2026/), but the results on this 
+page come from the original fit. Third, a post-season review turned up that the weekly Baseball Savant pulls run into a silent 25,000-row export 
+cap, so some days come back incomplete. The rebuilt version (daily pulls validated against official final scores, separate starter and bullpen 
+phases, and exposure offsets) is written up [here](https://ryanliam-bio.github.io/baseball_analytics/projects/bayesian_mcmc_2026/#post-season-audit-and-rebuild-october-2026). I've left the original write-up below as it was published.
+
  ### Motivation
 
   Traditional run-scoring models often treat total runs as a single outcome, obscuring the underlying mechanics of how teams generate offense. This
@@ -65,6 +75,7 @@ image:
   I will note that LOO-PSIS comparison indicated that negative binomial was also a marginally better fit
   for 3-run events, but the dispersion parameter was creating impossibly high variance
   in run scoring. For this reason, the model swapped to Poisson distribution and had no issues thereafter.
+  *(October 2026: re-running this comparison on the corrected 2025 data, negative binomial for 3- and 4-run plays is no better than Poisson (ΔELPD +2.0, SE 2.3), and its dispersion estimates run off toward infinity, which is the model's way of saying those plays aren't overdispersed. Poisson is the right call for them.)*
 
   ![Traceplots](traceplots.png)
   *MCMC diagnostics showing convergence (Rhat ≈ 1.0, effective sample sizes > 1000) for key parameters.*
@@ -80,7 +91,7 @@ image:
   - Venue
 
   Games with score mismatches between aggregated events and final scores (typically due to incomplete Statcast feeds) were excluded, resulting in
-  ~2,400 verified games for the 2025 regular season.
+  ~2,400 verified games for the 2025 regular season. *(Correction: games in which either team was shut out were also dropped further down the pipeline, which tilts the fit toward higher-scoring games. See the update at the top.)*
 
   ![Run Differential](rundiff.png)
   *Preliminary team strength via raw run differential.*
@@ -117,6 +128,8 @@ image:
   ![DET vs CLE Metrics](DETvCLE_metrics.png)
   *Simulation output includes win probability, implied moneylines, spread, and over/under distributions.*
 
+  *(October 2026: these matchups use the original pitcher estimates, which were tied to the wrong side of each game; see the update at the top. Read the pitcher-specific numbers as an illustration of the simulation output, not as real matchup odds.)*
+
   ---
 
 
@@ -127,7 +140,7 @@ image:
   - No batter-pitcher matchup specificity
   - Park factors assume constant effect across run types
   - Opener/piggyback games use nominal "starter"
-  - Due to Statcast API availability during the 2025 scrape, a small percentage of games were excluded. However, the hierarchical nature of the model allows for robust estimation of latent traits even with slightly reduced sample sizes.
+  - Some games were excluded: score-check mismatches from incomplete Savant pulls (the weekly exports run into Savant's 25,000-row cap) and every game with a shutout. Those exclusions aren't random, so they bias the scoring rates rather than just shrinking the sample. The shutout drop was fixed in the spring 2026 refit and the row cap in the October 2026 rebuild.
 
   **Potential Extensions:**
   - Incorporate reliever usage patterns and leverage
