@@ -10,7 +10,7 @@ tags:
 share: false
 profile: false
 math: false
-weight: 3
+weight: 4
 image:
   filename: "throw-comparison-best.jpg"
   caption: "Best throw of each session"

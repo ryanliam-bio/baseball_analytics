@@ -12,8 +12,8 @@ profile: false
 # Grid thumbnail only. Do not put "cover" in the filename — the theme renders
 # any bundled image matching *cover* as a full-width page banner.
 image:
-  filename: "yordan-alvarez.jpg"
-  caption: "Yordan Alvarez"
+  filename: "yordan-process-plus-thumb.png"
+  caption: "Yordan Alvarez Process+ through the All-Star Break. Source: PitcherList"
   focal_point: "Smart"
   preview_only: true
 ---
@@ -37,6 +37,9 @@ image:
 .fg-toc-foot{text-align:center;margin:0 0 2rem;font-size:.8rem;
   letter-spacing:.14em;text-transform:uppercase;}
 </style>
+> [!NOTE] Season's over
+> See how these calls held up in the [2026 Awards Audit](https://ryanliam-bio.github.io/baseball_analytics/projects/awards-audit-2026/).
+
 > [!abstract] Summary
 > A market-by-market look at the six major awards races at the 2026 All-Star Break, using expected outcome and underlying process metrics to separate the performances that should hold from the ones that shouldn't. **Yordan Alvarez** and **Shohei Ohtani** are clear MVP favorites, but the more interesting stories sit just underneath them: **Bobby Witt Jr.** and **Pete Crow-Armstrong** are each on pace to out-WAR their league's favorite on the strength of elite defense, and **Cam Schlittler** has taken over a decimated AL Cy Young field throwing almost nothing but fastballs. **Jacob Misiorowski** is breaking velocity records and **Kevin McGonigle** has built his award case off an elite plate approach, while NL Rookie of the Year is still relatively open.
 
