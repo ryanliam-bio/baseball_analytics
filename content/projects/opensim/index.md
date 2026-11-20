@@ -7,10 +7,12 @@ tags:
   - Python
   - OpenSim
   - Baseball
+categories:
+  - Biomechanics
 share: false
 profile: false
 math: false
-weight: 4
+weight: 9
 image:
   filename: "throw-comparison-best.jpg"
   caption: "Best throw of each session"

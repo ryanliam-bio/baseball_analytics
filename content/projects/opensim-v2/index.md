@@ -6,10 +6,12 @@ tags:
   - Biomechanics
   - Python
   - OpenSim
+categories:
+  - Biomechanics
 share: false
 profile: false
 math: false
-weight: 2
+weight: 5
 image:
   filename: "featured.gif"
   caption: "Throw 7 synced (4x slow motion)"
@@ -17,7 +19,9 @@ image:
   preview_only: false
 ---
 
-
+*Update (Nov 2026): [3.0](https://ryanliam-bio.github.io/baseball_analytics/projects/opensim-v3/) switched the pose model from MediaPipe to RTMPose, which tracks my arm more cleanly, and that revised the torque on this page:
+OpenSim elbow varus is ~97 N·m (plausible ~80–110), not 128, and shoulder internal rotation ~102, not 130. Relative to my velocity that's about average to modestly above, not +2.2 SD. Velocity is effectively unchanged (63.5 mph; 63.4 below).
+The analysis below is left as originally published.*
 
 > [!abstract] Summary
 > Delivering on the promised follow-up of [2.0](https://ryanliam-bio.github.io/baseball_analytics/projects/opensim/), pipeline 2.1 adds and synchronizes a second phone. With that, we now have real depth and a more legitimate 
@@ -164,6 +168,8 @@ within ~1° but reads wrist speed ~20% high, and anything needing depth is noise
 
 ### What's Next: 2.2
 
+*Update: [3.0](https://ryanliam-bio.github.io/baseball_analytics/projects/opensim-v3/) is out, and results from each session now live in the [Pitching Session Log](https://ryanliam-bio.github.io/baseball_analytics/projects/pitching-session-log/).*
+
 Re-shooting the week of Oct 19. Every change is aimed at one of the shortcomings outlined in [What to Expect](#what-to-expect-from-this-data):
 - **Measure my upper arm properly** (shoulder width, plus a second set of hands on the tape) and scale OpenSim's arm to it segment by segment instead of from my height. The arm path and the filter choice are the two biggest pieces of the torque range (~10% each), and a properly sized arm should help both, since a better IK fit leaves less jitter to smooth
 - **More throws, 25–30 instead of 13.** Throw-to-throw spread is the next biggest piece. More throws won't shrink the spread itself, but doubling them should cut the uncertainty on the median by roughly a quarter to a third (the 95% CI goes from ~121–136 to about ±5 N·m)
@@ -193,6 +199,9 @@ rather than measured. That arm is also more sensitive to the filter cutoff (−1
 
 Ball speed rests on the stereo calibration's scale, which checks out against my tape measure and height within a few percent (worst case ~2 mph). Joint angles aren't compared to Driveline at all
 for the definition reasons above.
+
+Last, every session so far has been off flat ground rather than a mound. That changes my stride, lead leg, and trunk tilt and likely costs some velocity, so any comparison to Driveline's pitchers
+(all off a mound) carries that asterisk too.
 
 ---
 

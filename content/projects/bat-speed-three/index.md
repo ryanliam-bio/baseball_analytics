@@ -3,10 +3,13 @@ title: "Bat Speed Analysis 3.0"
 summary: "Contact point-adjusted bat speed, swing length, and impulse across 920k+ competitive swings from 2024-26."
 date: "2026-10-01"
 tags:
-  - Python
-  - Statcast
   - Bat Tracking
+  - Statcast
+  - Python
+categories:
+  - Statcast Analysis
 share: false
+featured: true
 profile: false
 math: false
 weight: 1

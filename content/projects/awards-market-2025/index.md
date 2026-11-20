@@ -6,6 +6,8 @@ tags:
   - Awards
   - Statcast
   - MLB
+categories:
+  - Awards
 date: "2025-07-18"
 share: false
 weight: 20

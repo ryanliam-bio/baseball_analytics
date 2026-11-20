@@ -5,6 +5,8 @@ tags:
   - Sabermetrics
   - Modeling
   - Excel
+categories:
+  - Projections and Modeling
 date: "2022-12-23"
 weight: 100
 math: true

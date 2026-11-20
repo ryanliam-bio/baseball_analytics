@@ -6,6 +6,8 @@ tags:
   - Python
   - Biomechanics
   - Statcast
+categories:
+  - Statcast Analysis
 math: true
 share: false
 profile: false

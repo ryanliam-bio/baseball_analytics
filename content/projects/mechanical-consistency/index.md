@@ -5,11 +5,13 @@ tags:
   - SQL
   - R
   - Biomechanics
+categories:
+  - Biomechanics
 date: "2026-01-25"
 share: false
 profile: false
 math: true
-weight: 7
+weight: 10
 image:
   filename: "velo-scatter.png"
   caption: "Velocity vs Mechanical Consistency"

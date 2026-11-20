@@ -5,10 +5,12 @@ tags:
   - Biomechanics
   - MLB
   - Statcast
+categories:
+  - Biomechanics
 date: "2025-10-30"
 share: false
 profile: false
-weight: 10
+weight: 8
 # Optional: Add a featured image to the grid
 image:
   filename: "featured.png"

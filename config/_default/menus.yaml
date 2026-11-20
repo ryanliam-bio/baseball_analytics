@@ -10,6 +10,27 @@ main:
   - name: Experience
     url: experience/
     weight: 20
+  # Projects is a dropdown. Its label links to projects/ (Featured + All) through the navbar override in
+  # layouts/_partials/components/headers/navbar.html; the chevron opens the list. Category pages live in
+  # content/topics/ and filter on each project's `categories:` (values use "and", never "&").
+  # Children are listed alphabetically (Liam, Nov 19).
   - name: Projects
+    identifier: projects
     url: projects/
     weight: 30
+  - name: Biomechanics
+    url: topics/biomechanics/
+    parent: projects
+    weight: 2
+  - name: Projections & Modeling
+    url: topics/projections-modeling/
+    parent: projects
+    weight: 3
+  - name: Statcast Analysis
+    url: topics/statcast-analysis/
+    parent: projects
+    weight: 4
+  - name: Awards
+    url: topics/awards/
+    parent: projects
+    weight: 1

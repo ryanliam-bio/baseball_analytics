@@ -5,6 +5,8 @@ tags:
   - R
   - Machine Learning
   - XGBoost
+categories:
+  - Projections and Modeling
 date: "2026-02-06"
 share: true
 profile: false

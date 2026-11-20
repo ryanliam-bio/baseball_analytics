@@ -6,6 +6,8 @@ tags:
   - Python
   - Surplus Value
   - Statcast
+categories:
+  - Projections and Modeling
 share: false
 profile: false
 math: false

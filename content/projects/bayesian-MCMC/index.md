@@ -5,6 +5,8 @@ tags:
   - R
   - Stan
   - Bayesian Modeling
+categories:
+  - Projections and Modeling
 date: "2026-01-25"
 share: false
 profile: false

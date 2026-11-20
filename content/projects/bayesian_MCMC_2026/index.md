@@ -6,6 +6,8 @@ tags:
   - Stan
   - Bayesian Modeling
   - PECOTA
+categories:
+  - Projections and Modeling
 date: "2026-03-25"
 share: false
 profile: false

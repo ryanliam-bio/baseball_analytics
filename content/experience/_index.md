@@ -15,7 +15,7 @@ h1 {
 
 <div class="experience-content">
 
-My background connects measurement technology, high-performance athletics, and independent research. At Kistler, I worked across MLB, NBA, NHL, and NFL organizations, elite performance facilities, and university research labs, giving me direct exposure to how force plate and motion capture systems get integrated into workflows that actually matter. At Michigan State, four years inside a Power 5 football program taught me how complex organizations function and how to communicate effectively across departments. Independent research is where I've built the analytical foundation to pursue questions I care about and demonstrate how I think through problems. 
+My background connects measurement technology from Kistler, football operations at MSU, and independent baseball research. I currently work in eCommerce management at CMI Corp.; this page covers the work behind my portfolio. 
 
 ---
 
@@ -23,73 +23,70 @@ My background connects measurement technology, high-performance athletics, and i
 
 **Kistler Instrument Corp.** | 2022 - 2026
 
-I spent nearly three years at Kistler supporting force plate measurement systems.
-My role as Application Specialist for Biomechanics gave me direct exposure to how elite sport organizations integrate measurement technology into their workflows. I worked with MLB, NBA, NHL, and NFL teams, as well as university research institutions and elite-level performance facilities. As the sole executor of North American operations, the job required true end-to-end understanding of application design, system implementation, and full-scope acquisition optimization.
+I spent four years at Kistler, starting in Industrial Production before moving into the biomechanics Application Specialist role in 2023. 
+I worked with MLB, NBA, NHL, and NFL teams, as well as a wide variety of university research labs and performance facilities. 
+As the sole executor of North American operations, I owned everything from application design and system integration 
+to on-site installations, conferences, and marketing.
 
 A few highlights:
 
-- **Sport-specific system development**: Led projects designing instrumented pitcher's mounds and batter's boxes, working through the engineering and measurement challenges unique to baseball applications.
-- **Motion capture integration**: Diagnosed and resolved interface issues between force plates and optical tracking systems- a common pain point when organizations try to synchronize kinetic and kinematic data.
-- **Performance testing workflows**: Helped organizations design and troubleshoot testing protocols, with emphasis on data quality and repeatability.
+- **System validation**: When our largest research client had lost confidence after months of unresolved issues, I worked with our technical lead in Germany to measure natural frequency at each layer (building foundation, force plates, top plates) using accelerometers and FFT analysis. That showed exactly where the system stood and turned the relationship into a collaboration on test design. The next year, I led troubleshooting on one of their other installations myself.
+- **Sport-specific system development**: Led project design for instrumented pitcher's mounds and batter's boxes, working through the engineering and measurement challenges unique to baseball applications.
+- **Motion capture integration**: Diagnosed and resolved interface issues between force plates and optical tracking systems.
+- **Performance testing workflows**: Helped performance scientists design and troubleshoot testing protocols, with an emphasis on data quality and repeatability.
 
-This work gave me firsthand understanding of the gap between "having data" and "having useful data." Measurement systems are only as good as the workflows around them.
 
 ---
 
-## Learning How Organizations Work
 
-**Michigan State University Football** | 2018 - 2021
+
+## Michigan State University Football
+
+**Student Equipment Manager** | 2018 - 2021
 
 <div style="float: right; margin: 0 0 15px 25px; max-width: 280px;">
   <img src="paul-bunyan.jpg" alt="Holding the Paul Bunyan Trophy after Michigan State's rivalry win" style="width: 100%; border-radius: 4px;">
-  <p style="font-size: 0.85em; color: #666; margin-top: 8px; text-align: center;">Paul Bunyan Trophy, 2021</p>
+  <p style="font-size: 0.85em; opacity: 0.7; margin-top: 8px; text-align: center;">Paul Bunyan Trophy, 2021</p>
 </div>
 
-Before Kistler, I spent four years earning my Applied Engineering Sciences degree and working as a student equipment manager for Michigan State Football, finishing as Head Student Manager in my final season. This experience shaped how I think about working within complex organizations more than any classroom or internship.
+Before Kistler, I spent four years earning my Applied Engineering Sciences degree and working as a student equipment manager for the football program, finishing as Head Student Manager in my final season.
 
-A Power 5 football program is a large, complex organization. On any given day, I coordinated across coaching staff, strength and conditioning, athletic training, nutrition, operations, and video- each with their own priorities, terminology, and constraints. My job was to make sure nothing fell through the cracks.
+On any given day, I coordinated across coaching staff, strength and conditioning, athletic training, nutrition, operations, and video- each with their own priorities, terminology, and constraints. My job was to make sure nothing fell through the cracks.
 
-As Head Student Manager, I served as an on-field assistant to the head coach during practices and was responsible for leading the student staff. The role required anticipating needs before they became problems, communicating clearly across departments, and maintaining composure when things didn't go to plan- which, in college athletics, is most of the time.
+In that final season, I served as an on-field assistant to the head coach and led the student staff. As the man on the microphone directing traffic every practice, I quickly learned to be decisive and get comfortable with sudden change. It pushed me to find a clear, confident voice and move on from mistakes immediately- because there's no hiding when the whole program is relying on you for direction.
 
-What I took from this experience:
-
-- **Cross-functional communication**: Learning to translate between departments with different priorities taught me that information only matters if it reaches the right people in a form they can use. 
-- **Operating in high-pressure environments**: Gamedays and practice periods don't allow for hesitation. As the man on the microphone directing traffic every practice, I learned to be decisive and get comfortable with sudden change. In particular, this responsibility forced me to find a clear, confident voice and move on from mistakes immediately- because there's no hiding when the whole program is relying on you for direction.
-- **Understanding organizational dynamics**: Every department in a football program believes their work is central to winning. Learning to navigate those dynamics- supporting everyone's goals without creating friction- is a skill that is applicable to any high level organization, athletics or otherwise.
-
-I worked 4 seasons for the Spartans and had the opportunity to support teams that played in the Redbox Bowl (2018), Pinstripe Bowl (2019), and Peach Bowl (2021).
+Across those four seasons, I supported teams that played in the Redbox Bowl (2018), Pinstripe Bowl (2019), and Peach Bowl (2021).
 
 
 ---
 
 ## Independent Research
 
-Since 2022, I've maintained an independent focus on baseball analytics, primarily using publicly available data from Statcast and FanGraphs. This work is self-directed; I pursue questions that interest me and build the technical skills needed to answer them.
+Since 2023, I've maintained an independent focus on baseball analytics and biomechanics, primarily using publicly available data from Statcast and FanGraphs, plus video I capture myself. I pursue questions that interest me, often building the necessary technical skills in real time.
 
-My research interests include:
+A few areas I've been working on:
 
-- **Swing mechanics and offensive output**: Evaluating how swing speed distributions, contact point proxies, and batted-ball tendencies relate to performance changes over time
-- **Rookie evaluation**: Estimating prospective WAR production within debut seasons, with emphasis on identifying which early-season indicators are meaningful versus noisy
-- **Biomechanical variability**: Exploring public datasets like Driveline's OpenBiomechanics Project to understand pitch-to-pitch consistency and its relationship to velocity and command
+1. **[Markerless pitching biomechanics](https://ryanliam-bio.github.io/baseball_analytics/projects/opensim-v3/)**: smartphone video → RTMPose → OpenSim inverse kinematics and joint torque modeling.
+2. **[Bat tracking](https://ryanliam-bio.github.io/baseball_analytics/projects/bat-speed-three/)**: contact-point-adjusted bat speed, and how quickly swing metrics stabilize.
+3. **[Bayesian projection](https://ryanliam-bio.github.io/baseball_analytics/projects/bayesian_mcmc_2026/)**: hierarchical R/Stan run-scoring model for team win totals.
+4. **[Swing-change detection](https://ryanliam-bio.github.io/baseball_analytics/projects/stance-tracker/)**: changepoint tracking of daily Statcast stance and swing-trait data.
+5. **[Market-based evaluation](https://ryanliam-bio.github.io/baseball_analytics/projects/awards-audit-2026/)**: midseason MVP, Cy Young, and Rookie of the Year market analysis, audited against final results.
 
-I treat this site as a working archive- a place to document analyses, share methodology, and demonstrate how I think through problems. Selected projects are available on the [Projects](/projects/) page.
+
+I treat this site as a working archive- everything can be found on the [Projects](https://ryanliam-bio.github.io/baseball_analytics/projects/) page.
 
 ---
 
-<a href="2026 Baseball Resume - Final.pdf" download class="btn btn-primary">
+<a href="Liam-Ryan-Resume.pdf" download class="btn btn-primary">
 Download Resume (PDF)
 </a>
 
 ---
 
-## Education & Memberships
+## Education
 
-**Michigan State University** | Bachelor of Engineering, Applied Engineering Sciences | December 2021
+**Michigan State University** | Bachelor of Science, Applied Engineering Sciences | December 2021
 - Concentration in Supply Chain Management
-
-**Professional Memberships**
-- Society for American Baseball Research (SABR)
-- American Baseball Biomechanics Society (ABBS)
 
 ---
 
@@ -97,8 +94,10 @@ Download Resume (PDF)
 
 | Category | Tools & Methods |
 |----------|-----------------|
-| Analytics | Python, R, SQL |
-| Biomechanics | Force plate systems, motion capture integration, performance testing protocol design |
-| Data | Statcast, FanGraphs, Driveline OpenBiomechanics |
+| Programming | Python, R, SQL |
+| Statistical modeling | Bayesian hierarchical models (Stan), changepoint detection, XGBoost / random forests |
+| Computer vision and biomechanics | RTMPose pose estimation, OpenCV stereo calibration and triangulation, OpenSim inverse kinematics and joint kinetics |
+| Measurement hardware | Force plate installation, synchronization, and vibration diagnostics; motion capture integration; instrumented mounds and batter's boxes |
+| Data | Statcast (pitch and bat tracking), FanGraphs, Driveline OpenBiomechanics |
 
 </div>

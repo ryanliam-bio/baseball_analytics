@@ -5,6 +5,9 @@ tags:
   - Awards
   - Statcast
   - MLB
+categories:
+  - Awards
+featured: true
 date: "2026-11-17"
 share: false
 weight: 3

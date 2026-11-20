@@ -6,6 +6,8 @@ tags:
   - Python
   - Statcast
   - Batting Stance
+categories:
+  - Statcast Analysis
 share: false
 profile: false
 math: false

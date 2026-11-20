@@ -5,6 +5,8 @@ tags:
   - Python
   - MLB
   - Statcast
+categories:
+  - Statcast Analysis
 date: "2025-10-28"
 share: false
 weight: 15

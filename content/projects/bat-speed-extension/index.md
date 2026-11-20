@@ -6,6 +6,8 @@ tags:
   - R
   - Statcast
   - Bat Tracking
+categories:
+  - Statcast Analysis
 share: false
 profile: false
 math: false

@@ -73,3 +73,11 @@ npm-debug.log*
 # ============================================================================
 content/projects/opensim-v2/*-trimmed.mp4
 content/projects/opensim-v2/*.llc
+content/throwing videos/
+_handoffs/
+
+# Local multi-agent collaboration configs (never publish to live site)
+.claude/
+.agents/
+CLAUDE.local.md
+GEMINI.md

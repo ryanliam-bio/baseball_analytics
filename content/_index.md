@@ -1,7 +1,7 @@
 ---
-title: 'Liam Ryan | MLB Analytics'
-summary: 'Independent Baseball Researcher specializing in Statcast data and award market prediction.'
-date: 2026-01-23
+title: 'Liam Ryan | Biomechanics & Baseball Analytics'
+summary: 'Independent baseball analyst with a focus on portable markerless mocap, Bayesian modeling, and Statcast- and market-based player evaluation.'
+date: 2026-11-19
 type: landing
 
 design:
@@ -10,67 +10,58 @@ design:
 sections:
   # 1. MANUAL BIOGRAPHY (Bypassing the broken admin folder)
   - block: markdown
+    id: bio
     content:
       #title: 'Liam Ryan'
-      subtitle: 'Biomechanics & Baseball Analytics'
       text: |-
         <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-          <img src="media/avatar.jpg" style="width: 200px; border-radius: 50%; margin-bottom: 20px;">
+          <img src="media/avatar.jpg" alt="Liam Ryan" style="width: 200px; border-radius: 50%; margin-bottom: 20px;">
           
           <h1 style="margin-top: 0;">Liam Ryan</h1>
-          <h3 style="color: #6c757d; margin-top: -10px;">Biomechanics & Baseball Analytics</h3>
+          <p style="font-size: 1.25rem; font-weight: 600; opacity: 0.7; margin-top: -10px;">Biomechanics & Baseball Analytics</p>
         </div>
         <div style="text-align: center;">
-        My background is rooted in engineering and biomechanics. I’m currently focused on independent baseball analytics research, building toward a role at the intersection of performance science and quantitative&nbsp;analysis.
+        Engineer by schooling, biomechanics by trade, baseball analyst by night. I'm still figuring out where it all leads, but between backyard markerless mocap development, Bayesian modeling, and bat tracking work, I'm certainly failing enough to learn along the way.
 
         </div>
         <div style="text-align: center;">
 
-        {{< icon name="envelope" pack="fas" >}} [Email Me](mailto:liam.ryan@comcast.net) | {{< icon name="link" pack="fas" >}} [LinkedIn](https://www.linkedin.com/in/liam-ryan-mi/)
+        {{< icon name="envelope" >}} [Email Me](mailto:liam.ryan@comcast.net) | {{< icon name="brands/linkedin" >}} [LinkedIn](https://www.linkedin.com/in/liam-ryan-mi/) | {{< icon name="brands/x" >}} [X](https://x.com/liam_ryan7788)
 
         </div>
     design:
-      columns: '3'
       background:
         gradient_mesh:
           enable: true
 
   # 2. MISSION STATEMENT
   - block: markdown
+    id: why-i-do-this
     content:
-      title: 'Applied Baseball Research'
-      subtitle: 'From tracking data to performance questions.'
+      title: 'Why I Do This'
       text: |-
-        I use baseball tracking data to explore questions related to player performance, development, and variability. Much of my work focuses on understanding how observable outcomes (such as release point, swing speed, or batted-ball tendencies) can reflect underlying mechanical or approach-level changes, while recognizing the limitations of proxy data.
+        I'll spare you my full life story, but I got off to a rough start at Michigan State. My second-semester grades were so bad
+        that my academic advisor told me to switch to a major without a GPA requirement. Call it stubbornness or resilience, but I didn't listen.
+        I worked my way into the College of Engineering and earned the Applied Engineering Sciences degree I set out for. During that time I spent four seasons
+        as a student equipment manager for the football team. I was quiet and far from a natural speaker, so calling practice on the mic as head manager in 
+        my last season came with real growing pains.
+        
+        After a year and a half in Kistler's Industrial Production division, I took a chance on their biomechanics role with no network,
+        no experience, and no transition plan. I quickly learned on the job with help from Kistler's European team and business partners,
+        and grew into the primary resource for installations worldwide. That work spanned a certain shoe company's research lab in Oregon, a handful of pro teams across the major leagues,
+        and university labs and performance centers across North America. Internationally, I advised on installs in Germany and China, and a Swiss pro
+        soccer club down the road from Kistler's headquarters even came to me directly for support. 
+        Compared to general industrial work, biomechanics introduced me to a field full of people who legitimately care about their craft and do great work for its own sake.
+        
+        That feeling is what I'm still chasing. I want to be part of a team where everyone is pushing to learn, build, and compete at the highest level. 
+        It's why I've dug through multiple sport-specific modeling books, and why I'm filming pitching sessions in a public park when it's 40 degrees out.
+        You'll find plenty of self-corrections throughout my [projects](https://ryanliam-bio.github.io/baseball_analytics/projects/); many of them are simple, silly mistakes. 
+        Embracing the misses is the only way to grow.
+        
+        Questions, comments, concerns always welcome. Feel free to reach out, even if it's just to say hey to an old ASB connection. 
+        
+        
 
-        This site serves as a working archive of analyses, written notes, and exploratory research as I continue to build applied performance science skills. Emphasis is placed on clear problem framing, reproducible workflows, and communicating uncertainty alongside results.
-
-        Questions, constructive criticism, and general thoughts are always welcome- feel free to reach out.
-    design:
-      columns: '1'
-
-  # 3. PROJECTS SECTION
-  - block: collection
-    id: projects
-    content:
-      title: Featured Analysis
-      filters:
-        folders:
-          - projects
-      sort_by: 'weight'
-      sort_ascending: true
-      count: 2
-      offset: 0
-    design:
-      view: article-grid
-      columns: 2
-      
-
-  # 4. HIDE EVERYTHING ELSE
-  - block: collection
-    id: archive
-    active: false
-  - block: collection
-    id: posts
-    active: false
+  # No project blocks on the home page (Liam, Nov 19). Projects live at /projects/ and the Projects menu.
+  # Note: this theme ignores `active: false` on a block; delete a block to hide it.
 ---
