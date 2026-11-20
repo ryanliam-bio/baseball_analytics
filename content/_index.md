@@ -3,6 +3,8 @@ title: 'Liam Ryan | Biomechanics & Baseball Analytics'
 summary: 'Independent baseball analyst with a focus on portable markerless mocap, Bayesian modeling, and Statcast- and market-based player evaluation.'
 date: 2026-11-19
 type: landing
+seo:
+  title: 'Liam Ryan | Biomechanics & Baseball Analytics'
 
 design:
   spacing: '6rem'
