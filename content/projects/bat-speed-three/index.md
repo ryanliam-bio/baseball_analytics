@@ -1,6 +1,6 @@
 ---
 title: "Bat Speed Analysis 3.0"
-summary: "Contact point-adjusted bat speed, swing length, and impulse across 920k+ competitive swings from 2024-26."
+summary: "Contact point-adjusted bat speed, swing length, and impulse across 924k competitive swings from 2024-26."
 date: "2026-10-01"
 tags:
   - Bat Tracking
@@ -28,8 +28,8 @@ image:
 > The contact-adjusted version isolates the first. Raw bat speed is still the better predictor of next year's production, because 
 > contact point is sticky and comes packaged with pull-side damage. Adjusted bat speed is the cleaner measure of the swing itself: 
 > it stabilizes faster, it explains why hitters "swing harder" at changeups, and when paired with where a hitter actually 
-> meets the ball the following year, it out-predicts raw speed. 
-> As always- do we want to know more about the player himself, or how their talent translates on-field?
+> meets the ball the following year, it slightly edges out raw speed on batted-ball outcomes. 
+> As always- do we want to know more about the player himself, or how his talent translates on-field?
 
 ### Overview
 
@@ -39,9 +39,9 @@ where they meet the ball. In 2.0 I wrote that Statcast's intercept point was rel
 the baseballr commit history indicates we've had COM-relative contact point for a while now. Regardless of whether
 this is a new addition or I just whiffed on that, we have more than enough data to draw some conclusions on these second-order metrics.
 
-So I pulled every regular season swing from 2024 through this past weekend (~1M swings), one day at a time. 
+So I pulled every regular season swing from 2024-26 (~1M swings), one day at a time. 
 The IQR filter for non-competitive swings from 2.0 is applied up front, to everything, which leaves **924k competitive swings** from 
-roughly 2,000 hitter-seasons. Building this is also how I found that 2.0's filter never actually applied to the swings used to determine stabilization numbers. 
+roughly 2,000 hitter-seasons. Building this is also how I found that 2.0's filter never actually applied to the stabilization, count, or pitch-type analyses. 
 That page now has a correction note, and the short version is that bat speed stabilizes even faster than I said.
 
 The question this time is the same one 2.0 asked about "impulse": once you account for where a hitter met the ball, what's left in bat speed, 
@@ -144,16 +144,16 @@ or about 3-4 games raw and 2 adjusted, but the gap between them holds.*
 ### What About Bat Acceleration?
 
 Bat acceleration has been derived from Statcast's bat speed and swing length a few different ways since the data came out, and 2.0's version was 
-"impulse." With the (flawed) assumption of constant acceleration, average acceleration is v²/2L, so impulse (v²/L) is just twice that. 
+"impulse." With the (flawed) assumption of constant acceleration, average acceleration is v²/2L, so impulse (v²/L) is just twice that. In this data, bat speed grows more slowly with path length than constant acceleration implies, especially out front. 
 In this data it isn't more reliable than speed (impulse takes ~36 swings to stabilize vs ~20 for raw bat speed), and it's less sticky year to year (0.905 vs 0.921). 
 The contact adjustment helps it more than any other metric but only enough to catch up to raw speed.
 
-The more useful piece is swing length relative to bat speed: how much path a hitter needs to reach a given speed. (If tracking starts at swing onset and the bat sped up evenly, it'd convert to a swing time of roughly 140 ms, but neither assumption is solid enough to lean on.) As a trait, it's more interesting than impulse ever looked:
+The more useful piece is contact-adjusted swing length relative to bat speed: how much path a hitter needs to reach a given speed. (If tracking starts at swing onset and the bat sped up evenly, it'd convert to a swing time of roughly 140 ms, but neither assumption is solid enough to lean on.) As a trait, it's more interesting than impulse ever looked:
 
 - It's stable (r = 0.92 year over year, contact-adjusted).
 - It's nearly independent of bat speed (r = −0.16), where impulse overlaps heavily with speed (r = 0.70). That overlap is why impulse always looked like bat speed's weaker twin.
 - It tells you nothing about whiffs at a given bat speed (r = −0.02).
-- It does tell you where a hitter meets the ball. At the same bat speed, shorter paths make contact further out front (r = −0.41, and −0.37 for next season), and go with slightly more damage the following year (EV50, r = −0.22).
+- It does tell you where a hitter meets the ball. At the same bat speed, shorter paths make contact further out front (r = −0.41, and −0.37 for next season), and go with slightly more damage the following year (EV50, r = −0.22), though it doesn't improve a next-season forecast once you know contact depth.
 
 The leaderboard suggests it's as much about swing shape as anything. This year's shortest paths for their bat speed include Kyle Stowers, 
 Elias Díaz, Elly De La Cruz, and Corey Seager. The longest belong to Cody Bellinger, Marcus Semien, Jung Hoo Lee, Isaac Paredes, Rhys Hoskins, 
@@ -166,12 +166,12 @@ shows up in swing decisions is the next thing I want to test.
 ### Counts and Pitch Types, Revisited
 
 2.0 argued that pitcher's counts suppress bat speed more than hitter's counts raise it. That holds up and even looks better now that I compare 
-each hitter to himself. Using the same Tango count buckets as 2.0, the same hitter swings **1.85 mph** slower in pitcher's counts than in neutral 
-counts, and basically no faster in hitter's counts (+0.03).
+each hitter to himself. Using the same Tango count buckets as 2.0, the same hitter swings **1.86 mph** slower in pitcher's counts than in neutral 
+counts, and basically no faster in hitter's counts (+0.08).
 
-About 0.5mph of that is pitch location. Hitters chase more in pitcher's counts (64% of their swings come on pitches in the zone, vs 
+About 0.5 mph of that is pitch location. Hitters chase more in pitcher's counts (64% of their swings come on pitches in the zone, vs 
 77% in neutral counts), and those swings are slower. Holding pitch type, velocity, location, and platoon constant, the pitcher's count 
-drop is **1.35 mph**. Only about 20% of that (0.3 mph) comes from making contact deeper- about 1.8 inches. The rest is a softer swing at the same 
+drop is **1.35 mph**. Only about 22% of that (0.3 mph) comes from making contact deeper- about 1.8 inches. The rest is a softer swing at the same 
 contact point.
 
 Broken out by count, 0-2 costs 2.1 mph vs 0-0, with 1.6 of that at the same contact point. 3-0 adds 2.1, split about evenly between a harder 
@@ -210,7 +210,7 @@ For the contact-first guys especially, I'd guess that's a choice rather than a l
 trying to do damage with it. Steeper depth costs go with *lower* whiff rates (r = −0.30), which fits, though the data can't separate 
 choosing to shorten up from not being able to get there.
 
-Cam Smith, who I dinged in the 2025 awards check-in for letting the ball travel too deep, met it about 3 ms further out front this 
+Cam Smith, who I dinged in the [2025 awards check-in](https://ryanliam-bio.github.io/baseball_analytics/projects/awards-market-2025/) for letting the ball travel too deep, met it about 3 ms further out front this 
 year and is up 2.8 mph in adjusted bat speed (74.6 → 77.4). This is the kind of case where last year's raw bat speed undersells him, as 
 his swing got faster *and* his contact point moved. The league curve does a good job predicting these moves: 
 for hitters whose contact point shifted year over year, predicted vs actual change in contact point credit correlates at r = 0.88, though it overstates the gain by ~15-20% (Smith's move predicted +0.9 mph and delivered +0.6).
@@ -225,7 +225,7 @@ early or late relative to that hitter's normal contact point on that pitch type.
 62% of breaking/offspeed whiffs are more than 5 ms early. Nearly half of fastball whiffs (47%) are near misses: normal timing, 
 bat missed by less than 3 inches. Pitch recognition is truly only half the battle.
 
-In the 2026 awards check-in I wondered how quickly Savant's new timing data stabilizes. Using my own version (how much further out 
+In the [2026 awards check-in](https://ryanliam-bio.github.io/baseball_analytics/projects/awards-market-2026/) I wondered how quickly Savant's new timing data stabilizes. Using my own version (how much further out 
 front a hitter meets breaking balls than fastballs, contact swings only), it's a real trait (r ≈ 0.75 year over year) that, by itself, tells 
 you almost nothing about whiff rate (r = 0.07). I'd be hesitant to draw any meaningful conclusions at this point.
 
@@ -245,7 +245,7 @@ biggest boosts. On the other side, about 1.5 mph of Ozzie Albies', J.P. Crawford
 ball way out front.
 
 That's not a knock on any of them. Per Finding 1, out-front bat speed is real bat speed, and it comes with real damage. 
-It does add some context to the PCA bat speed jump I wrote about in July, though: he's up 2.4 mph raw year over year in this data, and about 
+It does add some context to the PCA bat speed jump I [wrote about in July](https://ryanliam-bio.github.io/baseball_analytics/projects/awards-market-2026/#nl-mvp), though: he's up 2.4 mph raw year over year in this data, and about 
 1.9 of that survives the adjustment. The rest is him getting even further out front.
 
 ---
@@ -260,7 +260,7 @@ Bat tracking is missing more often on the hardest-hit balls (10% of 105+ mph bal
 
 ### Technical Notes
 
-- **Software:** Python 3.11, pandas, NumPy, scikit-learn, matplotlib
+- **Software:** Python 3.13, pandas, NumPy, scikit-learn, matplotlib
 - **Data:** Savant search CSV, every regular season pitch 2024-26 (through Sept 27), one day per request. 2.0's weekly pulls hit Savant's 25,000-row export cap; daily pulls stay well under it.
 - **Sample:** ~1.01M non-bunt swings → 971k with complete bat tracking → 924k competitive swings across 1,982 hitter-seasons (1,415 with 150+ swings)
 - **Filters:** game_type == "R", bunts removed, non-competitive swings removed with 2.0's IQR rule (below Q1 − 1.5×IQR per hitter-season) before every analysis. A flat 50 mph floor instead gives nearly identical adjusted bat speeds (r = 0.998).
