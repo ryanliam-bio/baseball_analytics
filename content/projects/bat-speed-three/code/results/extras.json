@@ -1,0 +1,317 @@
+{
+ "untracked_bbe": {
+  "corr_untracked_share_ev50": -0.08094646884381886,
+  "ev_ge_105_untracked_share": 0.09872880123338279,
+  "ev_lt_90_untracked_share": 0.034507054868545974
+ },
+ "timing_shift_contact_only": {
+  "shift_BR_ms_mean": 8.660706697488479,
+  "shift_BR_ms_sd": 1.4617828337991687,
+  "shift_OS_ms_mean": 8.038396032588116,
+  "shift_OS_ms_sd": 1.5782076077152165,
+  "split_half_BR": 0.7680408711435418,
+  "corr_same_season": {
+   "barrel_rate": 0.01321662641950998,
+   "ev50": 0.15409842578714253,
+   "hardhit_rate": 0.10937033134372055,
+   "xwobacon": 0.028775996979553253,
+   "whiff_rate": 0.0725988037618642,
+   "bat_speed": 0.18913938324867924,
+   "depth_ms": 0.2374249909951625
+  },
+  "yoy": {
+   "shift_BR": 0.7531113073293795,
+   "shift_OS": 0.6605107577356086,
+   "shift_spin": 0.7770121431031725
+  }
+ },
+ "profile_models_next_season_cv_r2": {
+  "barrel_rate": {
+   "raw speed": 0.4451,
+   "adjusted speed": 0.4095,
+   "adjusted speed + depth": 0.4311,
+   "raw speed + depth": 0.4429,
+   "raw speed + depth + spin shift": 0.4509,
+   "adj speed + depth + spin shift": 0.4447
+  },
+  "ev50": {
+   "raw speed": 0.6408,
+   "adjusted speed": 0.6095,
+   "adjusted speed + depth": 0.6312,
+   "raw speed + depth": 0.6387,
+   "raw speed + depth + spin shift": 0.6385,
+   "adj speed + depth + spin shift": 0.6307
+  },
+  "hardhit_rate": {
+   "raw speed": 0.4912,
+   "adjusted speed": 0.4643,
+   "adjusted speed + depth": 0.4734,
+   "raw speed + depth": 0.4881,
+   "raw speed + depth + spin shift": 0.487,
+   "adj speed + depth + spin shift": 0.472
+  },
+  "whiff_rate": {
+   "raw speed": 0.3344,
+   "adjusted speed": 0.3126,
+   "adjusted speed + depth": 0.3495,
+   "raw speed + depth": 0.3353,
+   "raw speed + depth + spin shift": 0.3325,
+   "adj speed + depth + spin shift": 0.3476
+  },
+  "xwobacon": {
+   "raw speed": 0.4046,
+   "adjusted speed": 0.3885,
+   "adjusted speed + depth": 0.3962,
+   "raw speed + depth": 0.4036,
+   "raw speed + depth + spin shift": 0.4056,
+   "adj speed + depth + spin shift": 0.4022
+  }
+ },
+ "whiff_next_std_betas": {
+  "adj_speed": 0.5786086591169511,
+  "depth_ms": 0.2165548587575332,
+  "spin_shift": -0.03291670884109129,
+  "n": 563
+ },
+ "ev50_next_std_betas": {
+  "adj_speed": 0.7940601494984055,
+  "depth_ms": 0.15908502086093043,
+  "spin_shift": -0.01666885921384982
+ },
+ "barrel_rate_next_std_betas": {
+  "adj_speed": 0.6743729900783039,
+  "depth_ms": 0.19363296680618064,
+  "spin_shift": -0.13280000702615055
+ },
+ "xwobacon_next_std_betas": {
+  "adj_speed": 0.6491475911984742,
+  "depth_ms": 0.12976389115574707,
+  "spin_shift": -0.09898046522366029
+ },
+ "why_raw_wins": {
+  "corr_contact_effect_adj_speed": -0.22975153427224015,
+  "corr_contact_effect_depth_ms": 0.8931570667601659,
+  "corr_depth_ms_adj_speed": -0.04277314415770059,
+  "sd_raw": 2.7290552535421257,
+  "sd_adj": 2.8032906697231676,
+  "sd_contact_effect": 0.708225729145236
+ },
+ "depth_cost": {
+  "corr_dev_ms_with": {
+   "barrel_rate": -0.051132625928750355,
+   "ev50": 0.040909019802775934,
+   "hardhit_rate": 0.033865234967963974,
+   "xwobacon": -0.01787903110670525,
+   "whiff_rate": -0.16080558260990413,
+   "bat_speed_adj": -0.18176818786241578,
+   "depth_ms": 0.4658820686829845
+  },
+  "corr_total_ms_with_depth_ms": -0.30722656301102835,
+  "n": 979
+ },
+ "depth_cost_leaders_cheapest": [
+  {
+   "batter": 663728,
+   "name": "Raleigh, Cal",
+   "seasons": 3.0,
+   "swings": 3551.0,
+   "mph_per_ms": 0.128,
+   "depth_ms": 25.473,
+   "adj_speed": 73.553
+  },
+  {
+   "batter": 656775,
+   "name": "Mullins, Cedric",
+   "seasons": 3.0,
+   "swings": 2673.0,
+   "mph_per_ms": 0.139,
+   "depth_ms": 20.047,
+   "adj_speed": 70.693
+  },
+  {
+   "batter": 691406,
+   "name": "Caminero, Junior",
+   "seasons": 2.0,
+   "swings": 2258.0,
+   "mph_per_ms": 0.141,
+   "depth_ms": 26.332,
+   "adj_speed": 77.793
+  },
+  {
+   "batter": 645277,
+   "name": "Albies, Ozzie",
+   "seasons": 3.0,
+   "swings": 3304.0,
+   "mph_per_ms": 0.148,
+   "depth_ms": 26.27,
+   "adj_speed": 66.736
+  },
+  {
+   "batter": 543760,
+   "name": "Semien, Marcus",
+   "seasons": 3.0,
+   "swings": 3004.0,
+   "mph_per_ms": 0.152,
+   "depth_ms": 21.448,
+   "adj_speed": 67.625
+  },
+  {
+   "batter": 543309,
+   "name": "Higashioka, Kyle",
+   "seasons": 3.0,
+   "swings": 1282.0,
+   "mph_per_ms": 0.154,
+   "depth_ms": 21.849,
+   "adj_speed": 70.688
+  },
+  {
+   "batter": 621439,
+   "name": "Buxton, Byron",
+   "seasons": 3.0,
+   "swings": 2402.0,
+   "mph_per_ms": 0.154,
+   "depth_ms": 20.251,
+   "adj_speed": 74.589
+  },
+  {
+   "batter": 457705,
+   "name": "McCutchen, Andrew",
+   "seasons": 2.0,
+   "swings": 1733.0,
+   "mph_per_ms": 0.156,
+   "depth_ms": 17.875,
+   "adj_speed": 72.08
+  },
+  {
+   "batter": 669224,
+   "name": "Wells, Austin",
+   "seasons": 3.0,
+   "swings": 2236.0,
+   "mph_per_ms": 0.157,
+   "depth_ms": 21.149,
+   "adj_speed": 72.508
+  },
+  {
+   "batter": 666149,
+   "name": "Fitzgerald, Tyler",
+   "seasons": 2.0,
+   "swings": 1011.0,
+   "mph_per_ms": 0.162,
+   "depth_ms": 22.795,
+   "adj_speed": 69.095
+  }
+ ],
+ "depth_cost_leaders_steepest": [
+  {
+   "batter": 650333,
+   "name": "Arraez, Luis",
+   "seasons": 3.0,
+   "swings": 3255.0,
+   "mph_per_ms": 0.432,
+   "depth_ms": 22.282,
+   "adj_speed": 61.476
+  },
+  {
+   "batter": 650490,
+   "name": "D\u00edaz, Yandy",
+   "seasons": 3.0,
+   "swings": 3162.0,
+   "mph_per_ms": 0.436,
+   "depth_ms": 20.766,
+   "adj_speed": 72.866
+  },
+  {
+   "batter": 670032,
+   "name": "Lopez, Nicky",
+   "seasons": 2.0,
+   "swings": 1148.0,
+   "mph_per_ms": 0.439,
+   "depth_ms": 16.686,
+   "adj_speed": 65.513
+  },
+  {
+   "batter": 660821,
+   "name": "S\u00e1nchez, Jes\u00fas",
+   "seasons": 3.0,
+   "swings": 2378.0,
+   "mph_per_ms": 0.452,
+   "depth_ms": 23.188,
+   "adj_speed": 74.156
+  },
+  {
+   "batter": 672386,
+   "name": "Kirk, Alejandro",
+   "seasons": 3.0,
+   "swings": 1986.0,
+   "mph_per_ms": 0.455,
+   "depth_ms": 20.732,
+   "adj_speed": 71.267
+  },
+  {
+   "batter": 671218,
+   "name": "Ramos, Heliot",
+   "seasons": 3.0,
+   "swings": 2922.0,
+   "mph_per_ms": 0.455,
+   "depth_ms": 18.757,
+   "adj_speed": 74.568
+  },
+  {
+   "batter": 664770,
+   "name": "Lukes, Nathan",
+   "seasons": 2.0,
+   "swings": 1574.0,
+   "mph_per_ms": 0.455,
+   "depth_ms": 17.898,
+   "adj_speed": 67.57
+  },
+  {
+   "batter": 677942,
+   "name": "Alexander, Blaze",
+   "seasons": 3.0,
+   "swings": 1315.0,
+   "mph_per_ms": 0.456,
+   "depth_ms": 16.413,
+   "adj_speed": 73.427
+  },
+  {
+   "batter": 666018,
+   "name": "Aranda, Jonathan",
+   "seasons": 2.0,
+   "swings": 1957.0,
+   "mph_per_ms": 0.461,
+   "depth_ms": 18.293,
+   "adj_speed": 70.387
+  },
+  {
+   "batter": 680757,
+   "name": "Kwan, Steven",
+   "seasons": 3.0,
+   "swings": 2614.0,
+   "mph_per_ms": 0.469,
+   "depth_ms": 19.734,
+   "adj_speed": 62.849
+  }
+ ],
+ "fine_swings_to_r90_full": {
+  "bat_speed": 20.63621859069348,
+  "bat_speed_adj": 13.842939980894489,
+  "impulse": 36.47483873283997,
+  "impulse_adj": 20.201757241631906,
+  "swing_length": 27.021667100969562,
+  "swing_length_adj": 4.8392323732623845
+ },
+ "fine_swings_to_r80_rest": {
+  "bat_speed": 6.336062276246054,
+  "bat_speed_adj": 4.156173628202872,
+  "impulse": 11.296009806806847,
+  "impulse_adj": 6.103174493577495,
+  "swing_length": 9.285910850797706,
+  "swing_length_adj": 2.0
+ },
+ "fine_swings_to_r70_rest": {
+  "bat_speed": 2.6858162016033527,
+  "bat_speed_adj": 2.0
+ },
+ "n_qualified_2026": 326
+}

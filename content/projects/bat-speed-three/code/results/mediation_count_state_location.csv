@@ -1,0 +1,3 @@
+count_state (vs neutral),total_mph,direct_mph,via_contact_mph,depth_shift_in,depth_shift_ms,swings,share_via_contact
+hitter,0.055,-0.182,0.237,0.816,0.528,120961,
+pitcher,-1.353,-1.056,-0.298,-1.813,-1.268,399182,0.22

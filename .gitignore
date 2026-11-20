@@ -81,3 +81,58 @@ _handoffs/
 .agents/
 CLAUDE.local.md
 GEMINI.md
+
+# ============================================================================
+# Local working files: kept on disk, never committed (repo is public)
+# ============================================================================
+.Rhistory
+__pycache__/
+_archive/
+session-notes-*.md
+
+# Data caches and pulls
+content/projects/savant_cache/
+content/projects/savant_out/
+
+# Working projects not published as code
+content/projects/changepoint-tracker/
+content/projects/opencommand/
+content/projects/bayesian-player-level/
+
+# 2026 Bayesian model: working scripts, data, licensed projections (PECOTA/Steamer), v2 rebuild
+content/projects/bayesian_MCMC_2026/v2/
+content/projects/bayesian_MCMC_2026/pecota/
+content/projects/bayesian_MCMC_2026/data/
+content/projects/bayesian_MCMC_2026/Steamer-*.csv
+content/projects/bayesian_MCMC_2026/*.R
+content/projects/bayesian_MCMC_2026/*.stan
+content/projects/bayesian_MCMC_2026/*.rds
+content/projects/bayesian_MCMC_2026/calibration_results.csv
+content/projects/bayesian_MCMC_2026/pwoba_surface_*.png
+content/projects/bayesian_MCMC_2026/win_totals.png
+content/projects/bayesian-MCMC/2026_prior_framework.R
+
+# Leftover drafts, data, and unused figures in page bundles
+content/projects/bat-speed-three/adjusted_minus_raw.png
+content/projects/bat-speed-extension/*.R
+content/projects/bat-speed-extension/*.csv
+content/projects/bat-speed-extension/*.xlsx
+content/projects/bat-speed-extension/bat-speed-stabilization-by-count.png
+content/projects/bat-speed-extension/bat-speed-variance-by-count.png
+content/projects/bat-speed-extension/bat-speed-variance-not-rolling.png
+content/projects/bat-speed-extension/bat-speed-volume-variance.png
+content/projects/bat-speed-extension/by-type-stabilization.png
+content/projects/bat-speed-extension/ff-minus-breaking.png
+content/projects/bat-speed-extension/ff-minus-offspeed.png
+content/projects/bat-speed-extension/maybe-correct-by-count.png
+content/projects/bat-speed-extension/overall-stabilization-pitch-type-count.png
+content/projects/bat-speed-extension/pitch-type-interactions.png
+content/projects/mechanical-consistency/OBP-consistency.R
+content/projects/mechanical-consistency/*.csv
+content/projects/mechanical-consistency/*.db
+content/projects/mechanical-consistency/tier summary.png
+content/projects/mechanical-consistency-*.png
+content/projects/opensim/population_comparison_baddata.png
+content/projects/opensim-v3/sync_view.gif
+content/projects/stuff-model/SABR-essay.txt
+content/projects/stuff-model/*.csv

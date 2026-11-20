@@ -1,0 +1,5 @@
+controls,hitter_vs_neutral,pitcher_vs_neutral
+none,0.03,-1.85
+pitch type + velo,0.08,-1.83
++ location + platoon,0.06,-1.35
++ contact point,-0.18,-1.06

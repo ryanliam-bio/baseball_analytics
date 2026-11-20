@@ -1,0 +1,150 @@
+competitive swings: 923,820 (page: 924k)
+====================================================================================================
+1. STABILIZATION -- swings until the first-n average reaches r = .90 (hitter-seasons with 400+ swings)
+   full = vs full-season average (the page's / 2.0's method); rest = vs rest of season, no overlap
+====================================================================================================
+   metric                                         full     rest
+   raw bat speed                                  20.6     23.5
+   adjusted bat speed                             13.8     15.1
+   raw acceleration (v^2/L)                       36.5     43.4
+   adjusted acceleration (v^2/L)                  20.7     23.3
+   raw length/speed (season ratio)                43.3     54.3
+   adjusted length/speed (season ratio)           14.0     14.9
+   raw length/speed (per-swing mean)              44.4     56.3
+   adjusted length/speed (per-swing mean)         14.3     15.5
+   raw length/speed (per-swing median)            60.1     79.9
+   adjusted speed/length v/L (per-swing)          13.3     14.2
+   hitter-seasons: 979
+
+====================================================================================================
+2. HITTER-SEASON RELATIONSHIPS (1415 hitter-seasons with 150+ competitive swings; 735 next-season pairs)
+====================================================================================================
+   a) correlation with bat speed (raw metrics vs raw speed, adjusted vs adjusted speed)
+      LV         -0.125
+      LV_adj     -0.164
+      acc        +0.703
+      acc_adj    +0.701
+      VL_ps_adj  +0.162
+   b) year over year
+      bs         0.921
+      bs_adj     0.935
+      acc        0.905
+      acc_adj    0.913
+      LV         0.913
+      LV_adj     0.916
+   c) per-swing vs season-level ratios
+      L/v season vs per-swing mean:          1.000 (adjusted: 1.000)
+      per-swing L/v vs per-swing v/L:        -0.996
+   d) correlation with average contact depth (ms; + = further out front)
+      raw bat speed +0.19 | adjusted bat speed -0.04
+                    plain  ctrl adjusted speed       ctrl raw speed
+      LV_adj        -0.40                -0.41                -0.37
+      acc_adj       +0.27                +0.42                +0.20
+      LV            -0.07                -0.07                -0.04
+      acc           +0.17                +0.26                +0.05
+   e) adjusted L/v vs adjusted acceleration: same information once bat speed is held fixed?
+      plain -0.815 | holding adjusted speed fixed -0.995 | holding raw speed fixed -0.974
+   f) why length/speed comes out ~independent of speed: path length scales with speed across hitters
+      corr(adjusted path length, adjusted speed) +0.55; path ~ speed^0.80 (1.00 = proportional)
+      adjusted L/v vs depth, slowest third (61.3-69.9 mph, n=472): -0.34
+      adjusted L/v vs depth, middle  third (69.9-72.3 mph, n=471): -0.44
+      adjusted L/v vs depth, fastest third (72.3-82.3 mph, n=472): -0.45
+   g) adjusted L/v vs outcomes (partial r)
+      barrel_rate   same season -0.084 | next season -0.102 | next, also ctrl depth -0.029
+      ev50          same season -0.245 | next season -0.222 | next, also ctrl depth -0.150
+      hardhit_rate  same season -0.180 | next season -0.163 | next, also ctrl depth -0.123
+      xwobacon      same season -0.139 | next season -0.161 | next, also ctrl depth -0.142
+      whiff_rate    same season -0.017 | next season -0.070 | next, also ctrl depth +0.031
+
+====================================================================================================
+3. NEXT-SEASON PREDICTION -- out-of-sample R^2 (batter-grouped 10-fold, extras.cv_r2), n=735 pairs
+====================================================================================================
+                                           barrel_rate    ev50  hardhit_rate  xwobacon  whiff_rate
+   raw speed                                    0.4418  0.6194        0.4546    0.3810      0.3181
+   adjusted speed                               0.4079  0.5953        0.4359    0.3732      0.3019
+   raw speed + raw L/v                          0.4362  0.6233        0.4578    0.3862      0.3177
+   raw speed + raw acceleration                 0.4366  0.6232        0.4576    0.3862      0.3173
+   adj speed + adj L/v                          0.4103  0.6136        0.4491    0.3864      0.3015
+   adj speed + adj acceleration                 0.4109  0.6141        0.4490    0.3859      0.3019
+   adj speed + adj L/v + adj acceleration       0.4090  0.6124        0.4477    0.3833      0.2995
+   raw speed + depth                            0.4405  0.6203        0.4566    0.3839      0.3217
+   raw speed + depth + adj L/v                  0.4357  0.6258        0.4616    0.3918      0.3199
+   raw speed + depth + adj acceleration         0.4361  0.6261        0.4606    0.3911      0.3194
+   adj speed + depth                            0.4272  0.6135        0.4433    0.3748      0.3387
+   adj speed + depth + adj L/v                  0.4221  0.6200        0.4495    0.3837      0.3369
+   adj acceleration alone                       0.2559  0.4145        0.3027    0.2668      0.1840
+
+   Is the gain real? R^2 gain x1000, mean of 20 CV splits, 95% CI from resampling batters (* = excludes 0)
+   outcome       | depth over raw speed       | adj L/v over speed+depth   | both over raw speed       
+   barrel_rate   |  -1.9 [ -3.0,  -0.9] * |  -2.0 [ -3.9,  -0.1] * |  -3.9 [ -5.9,  -2.0] *
+   ev50          |  +0.4 [ -3.7,  +4.5]   |  +6.2 [ -1.9, +14.3]   |  +6.6 [ -2.3, +15.5]  
+   hardhit_rate  |  +1.4 [ -6.0,  +8.6]   |  +5.3 [ -4.7, +16.4]   |  +6.7 [ -5.6, +19.7]  
+   xwobacon      |  +3.6 [ -7.9, +14.3]   |  +9.2 [ -3.5, +22.6]   | +12.8 [ -3.1, +28.2]  
+   whiff_rate    |  +3.0 [ -6.3, +13.3]   |  -1.8 [ -6.0,  +2.5]   |  +1.2 [-10.3, +12.3]  
+
+   Page's row 3 (adjusted speed + NEXT season's contact credit) vs raw speed, same test:
+   barrel_rate   +17.4 [ +5.0, +31.2]  *
+   ev50          +13.0 [ +4.2, +22.0]  *
+   hardhit_rate  +10.6 [ +0.9, +19.7]  *
+   xwobacon       +8.7 [ +0.1, +17.0]  *
+   whiff_rate     -2.1 [-10.5,  +5.9]
+
+====================================================================================================
+4. DOES SPEED KEEP UP WITH PATH AS CONTACT MOVES OUT FRONT? (constant acceleration predicts elasticity 0.50)
+====================================================================================================
+   CONTROLLED (the page's fitted surfaces: hitter-season FE, count, pitch group, velo). Typical depth 29.7 in.
+   depth   speed    path speed%/in  path%/in  elasticity   local accel / avg so far (=2e)
+       5    63.7    5.81     +0.52     +0.88       +0.59   +1.17
+      10    65.4    6.08     +0.53     +0.96       +0.56   +1.11
+      15    67.1    6.38     +0.51     +0.99       +0.52   +1.04
+      20    68.8    6.70     +0.45     +0.94       +0.48   +0.96
+      25    70.2    7.01     +0.37     +0.86       +0.43   +0.86
+      30    71.4    7.30     +0.30     +0.80       +0.38   +0.76
+      35    72.3    7.59     +0.20     +0.72       +0.28   +0.55
+      40    72.8    7.85     +0.07     +0.65       +0.11   +0.21
+      42    72.8    7.95     +0.02     +0.64       +0.03   +0.07
+      45    72.8    8.10     -0.04     +0.61       -0.07   -0.14
+      50    72.5    8.34     -0.15     +0.54       -0.27   -0.54
+      55    71.8    8.54     -0.24     +0.42       -0.56   -1.11
+   12 in behind typical         speed +0.39%/in, path +0.88%/in, elasticity 0.45
+   +/-6 in around typical       speed +0.31%/in, path +0.80%/in, elasticity 0.38
+   12 in out front of typical   speed +0.18%/in, path +0.71%/in, elasticity 0.26
+   worked example, typical contact -> 6 in further out front: 71.3 -> 72.4 mph, 7.29 -> 7.62 ft;
+      constant acceleration would need 72.9 mph; v^2/L changes -1.5% instead of 0
+   UNCONTROLLED (raw within-hitter regression, no pitch/count controls) -- kept for the record; CONFOUNDED:
+   out-front contact over-represents offspeed, where hitters swing softer, so the out-front number is too low
+   own-mean depth -12 to  +0 in: elasticity 0.43
+   own-mean depth  -6 to  +6 in: elasticity 0.27
+   own-mean depth  +0 to +12 in: elasticity 0.02
+
+====================================================================================================
+5. A-SWING / B-SWING
+====================================================================================================
+   a) the IQR filter's floor sits 12.6 mph below the hitter's median (10th-90th pct 10.6 to 14.8) -- a B swing a few mph
+      slower is nowhere near it, so the filter isn't hiding one
+   b) bimodality, 979 hitter-seasons with 400+ competitive swings (clear = BIC prefers 2 by >10, Ashman D > 2, minor mode > 15%)
+      bat_speed      BIC prefers 2 components:  23% | clearly two humps:  5.5% | median D 1.61
+      bat_speed_adj  BIC prefers 2 components:  32% | clearly two humps:  0.5% | median D 1.19
+      median within-hitter skew -0.26 (a left tail makes BIC 'prefer' 2 components without two humps)
+      power check: planted B swing (35% of swings, 600 swings), total within-hitter SD held at the observed 3.65 mph
+        B swing 2 mph slower -> detected   0%
+        B swing 3 mph slower -> detected   0%
+        B swing 4 mph slower -> detected   0%
+        B swing 5 mph slower -> detected   2%
+        B swing 6 mph slower -> detected  97%
+        B swing 7 mph slower -> detected 100%
+   c) two-strike vs <2-strike swings, within hitter-season (controls: pitch group, velo), empirical-Bayes shrunk
+      speed_raw       league  -1.79 | between-hitter SD 0.75 | reliability 0.79 | yoy 0.69
+      speed_same_cp   league  -1.20 | between-hitter SD 0.65 | reliability 0.80 | yoy 0.73
+      depth_ms        league  -1.16 | between-hitter SD 1.04 | reliability 0.77 | yoy 0.71
+      length_same_cp  league  -0.08 | between-hitter SD 0.07 | reliability 0.89 | yoy 0.83
+      across hitters: raw drop vs drop at same contact point +0.91 | raw drop vs depth shift +0.50 | the two parts +0.19
+   d) payoff: partial r with two-strike whiff rate (controls: <2-strike whiff, bat speed); + = backing off / going deeper -> fewer whiffs
+      speed_same_cp   same season (effect from contact swings only) +0.305 | next season +0.208
+      depth_ms        same season (effect from contact swings only) +0.216 | next season +0.162
+      length_same_cp  same season (effect from contact swings only) +0.180
+      cost: backing off vs EV50 -0.038, vs xwOBAcon -0.011 (ctrl bat speed) -- none detectable
+   e) leaderboard, 2024-26 pooled, 1,000+ contact swings (n=290 named hitters; median -1.12 mph, -0.75 ms)
+      backs off most:  Giménez, Andrés (-3.2), Caballero, José (-2.8), Schanuel, Nolan (-2.7), Jeffers, Ryan (-2.7), Paredes, Isaac (-2.4), Soto, Juan (-2.4), Sánchez, Jesús (-2.4), Mangum, Jake (-2.4)
+      backs off least: Sosa, Lenyn (+0.1), Triolo, Jared (+0.1), Montgomery, Colson (+0.1), Marsh, Brandon (+0.1), Doyle, Brenton (-0.2), Thomas, Lane (-0.2), Goodman, Hunter (-0.3), Walker, Christian (-0.3)
+      goes deepest:    Turner, Trea (-3.8 ms), Bichette, Bo (-3.8 ms), Paredes, Isaac (-3.2 ms), Smith, Dominic (-2.9 ms), Hoerner, Nico (-2.7 ms), Tovar, Ezequiel (-2.7 ms), Donovan, Brendan (-2.7 ms), Crews, Dylan (-2.6 ms)

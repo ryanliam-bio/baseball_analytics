@@ -1,0 +1,578 @@
+{
+ "competitive_swings": 923820,
+ "stabilization": {
+  "raw bat speed": {
+   "full": 20.63621859069348,
+   "rest": 23.52554006942096
+  },
+  "adjusted bat speed": {
+   "full": 13.842939980892494,
+   "rest": 15.074455256794257
+  },
+  "raw acceleration (v^2/L)": {
+   "full": 36.47483873283997,
+   "rest": 43.41752783773928
+  },
+  "adjusted acceleration (v^2/L)": {
+   "full": 20.71700332646403,
+   "rest": 23.28836049303942
+  },
+  "raw length/speed (season ratio)": {
+   "full": 43.325121436373394,
+   "rest": 54.27677965844846
+  },
+  "adjusted length/speed (season ratio)": {
+   "full": 13.960458264883924,
+   "rest": 14.869450681037701
+  },
+  "raw length/speed (per-swing mean)": {
+   "full": 44.37891602060765,
+   "rest": 56.30982836939219
+  },
+  "adjusted length/speed (per-swing mean)": {
+   "full": 14.317803398838016,
+   "rest": 15.49278946298949
+  },
+  "raw length/speed (per-swing median)": {
+   "full": 60.06195468839125,
+   "rest": 79.88829529082167
+  },
+  "adjusted speed/length v/L (per-swing)": {
+   "full": 13.333372471515961,
+   "rest": 14.193113753299638
+  }
+ },
+ "hitter_level": {
+  "corr_LV_speed": -0.12496058537709383,
+  "corr_LV_adj_speed": -0.164497990403249,
+  "corr_acc_speed": 0.7027013305486262,
+  "corr_acc_adj_speed": 0.7011201104873279,
+  "corr_VL_ps_adj_speed": 0.16213334612385907,
+  "yoy_bs": 0.9210367108629313,
+  "yoy_bs_adj": 0.9345256805716315,
+  "yoy_acc": 0.9046645048998536,
+  "yoy_acc_adj": 0.9130609966833068,
+  "yoy_LV": 0.9131753036856292,
+  "yoy_LV_adj": 0.9163183778975454,
+  "corr_LV_season_vs_perswing": 0.9997442978542058,
+  "corr_LVadj_season_vs_perswing": 0.999898535626211,
+  "corr_LV_perswing_vs_VL_perswing": -0.9961802180669369,
+  "corr_bs_depth": 0.18784934152687044,
+  "corr_bsadj_depth": -0.04277314415770136,
+  "depth_LV_adj": {
+   "plain": -0.40037790680172836,
+   "ctrl_adj_speed": -0.41341904040794214,
+   "ctrl_raw_speed": -0.3703764883893485
+  },
+  "depth_acc_adj": {
+   "plain": 0.27272279953791007,
+   "ctrl_adj_speed": 0.42492405507638886,
+   "ctrl_raw_speed": 0.20320669176816125
+  },
+  "depth_LV": {
+   "plain": -0.06716691279939292,
+   "ctrl_adj_speed": -0.07146602519594336,
+   "ctrl_raw_speed": -0.04483652078290855
+  },
+  "depth_acc": {
+   "plain": 0.16579119450600466,
+   "ctrl_adj_speed": 0.2584966916285253,
+   "ctrl_raw_speed": 0.04835188009735565
+  },
+  "LVadj_vs_accadj": {
+   "plain": -0.8154142185362996,
+   "ctrl_adj_speed": -0.9953814954817556,
+   "ctrl_raw_speed": -0.9744181797972314
+  },
+  "corr_Ladj_bsadj": 0.5459289338479599,
+  "path_scaling_exponent": 0.8006378448612721,
+  "LVadj_depth_by_speed_tercile": {
+   "slowest": -0.3396352730539664,
+   "middle": -0.4373721217867581,
+   "fastest": -0.4547112427921831
+  },
+  "LVadj_partials": {
+   "barrel_rate": {
+    "same_ctrl_adj_speed": -0.0835879076298266,
+    "next_ctrl_adj_speed": -0.10184931586983847,
+    "next_ctrl_adj_speed_depth": -0.02937778542747851
+   },
+   "ev50": {
+    "same_ctrl_adj_speed": -0.24472664249519566,
+    "next_ctrl_adj_speed": -0.22182789037151834,
+    "next_ctrl_adj_speed_depth": -0.15012239040998485
+   },
+   "hardhit_rate": {
+    "same_ctrl_adj_speed": -0.17969399303681274,
+    "next_ctrl_adj_speed": -0.16255550158278348,
+    "next_ctrl_adj_speed_depth": -0.12294988296443383
+   },
+   "xwobacon": {
+    "same_ctrl_adj_speed": -0.13910357612827556,
+    "next_ctrl_adj_speed": -0.16142318858878343,
+    "next_ctrl_adj_speed_depth": -0.14176849227542904
+   },
+   "whiff_rate": {
+    "same_ctrl_adj_speed": -0.01674090493249706,
+    "next_ctrl_adj_speed": -0.06996469877834478,
+    "next_ctrl_adj_speed_depth": 0.031203158639578107
+   }
+  }
+ },
+ "cv_r2_next": {
+  "raw speed": {
+   "barrel_rate": 0.4418,
+   "ev50": 0.6194,
+   "hardhit_rate": 0.4546,
+   "xwobacon": 0.381,
+   "whiff_rate": 0.3181
+  },
+  "adjusted speed": {
+   "barrel_rate": 0.4079,
+   "ev50": 0.5953,
+   "hardhit_rate": 0.4359,
+   "xwobacon": 0.3732,
+   "whiff_rate": 0.3019
+  },
+  "raw speed + raw L/v": {
+   "barrel_rate": 0.4362,
+   "ev50": 0.6233,
+   "hardhit_rate": 0.4578,
+   "xwobacon": 0.3862,
+   "whiff_rate": 0.3177
+  },
+  "raw speed + raw acceleration": {
+   "barrel_rate": 0.4366,
+   "ev50": 0.6232,
+   "hardhit_rate": 0.4576,
+   "xwobacon": 0.3862,
+   "whiff_rate": 0.3173
+  },
+  "adj speed + adj L/v": {
+   "barrel_rate": 0.4103,
+   "ev50": 0.6136,
+   "hardhit_rate": 0.4491,
+   "xwobacon": 0.3864,
+   "whiff_rate": 0.3015
+  },
+  "adj speed + adj acceleration": {
+   "barrel_rate": 0.4109,
+   "ev50": 0.6141,
+   "hardhit_rate": 0.449,
+   "xwobacon": 0.3859,
+   "whiff_rate": 0.3019
+  },
+  "adj speed + adj L/v + adj acceleration": {
+   "barrel_rate": 0.409,
+   "ev50": 0.6124,
+   "hardhit_rate": 0.4477,
+   "xwobacon": 0.3833,
+   "whiff_rate": 0.2995
+  },
+  "raw speed + depth": {
+   "barrel_rate": 0.4405,
+   "ev50": 0.6203,
+   "hardhit_rate": 0.4566,
+   "xwobacon": 0.3839,
+   "whiff_rate": 0.3217
+  },
+  "raw speed + depth + adj L/v": {
+   "barrel_rate": 0.4357,
+   "ev50": 0.6258,
+   "hardhit_rate": 0.4616,
+   "xwobacon": 0.3918,
+   "whiff_rate": 0.3199
+  },
+  "raw speed + depth + adj acceleration": {
+   "barrel_rate": 0.4361,
+   "ev50": 0.6261,
+   "hardhit_rate": 0.4606,
+   "xwobacon": 0.3911,
+   "whiff_rate": 0.3194
+  },
+  "adj speed + depth": {
+   "barrel_rate": 0.4272,
+   "ev50": 0.6135,
+   "hardhit_rate": 0.4433,
+   "xwobacon": 0.3748,
+   "whiff_rate": 0.3387
+  },
+  "adj speed + depth + adj L/v": {
+   "barrel_rate": 0.4221,
+   "ev50": 0.62,
+   "hardhit_rate": 0.4495,
+   "xwobacon": 0.3837,
+   "whiff_rate": 0.3369
+  },
+  "adj acceleration alone": {
+   "barrel_rate": 0.2559,
+   "ev50": 0.4145,
+   "hardhit_rate": 0.3027,
+   "xwobacon": 0.2668,
+   "whiff_rate": 0.184
+  }
+ },
+ "gain_ci": {
+  "barrel_rate": {
+   "depth_over_speed": [
+    -1.8981457923864526,
+    -2.9581526134692764,
+    -0.9423624607769747
+   ],
+   "LVadj_over_speed_depth": [
+    -1.9845933984224569,
+    -3.850139462550482,
+    -0.13794409851848188
+   ],
+   "both_over_speed": [
+    -3.8827391908089095,
+    -5.915183943172876,
+    -1.988831599235863
+   ]
+  },
+  "ev50": {
+   "depth_over_speed": [
+    0.35256016560738895,
+    -3.6782013291916353,
+    4.53806881674104
+   ],
+   "LVadj_over_speed_depth": [
+    6.226211072768106,
+    -1.9467798574073378,
+    14.332072295423448
+   ],
+   "both_over_speed": [
+    6.578771238375495,
+    -2.320753389502748,
+    15.453784159740875
+   ]
+  },
+  "hardhit_rate": {
+   "depth_over_speed": [
+    1.4091768381473389,
+    -6.040677386951691,
+    8.562180322233468
+   ],
+   "LVadj_over_speed_depth": [
+    5.317333602112896,
+    -4.718749997083549,
+    16.388215417988224
+   ],
+   "both_over_speed": [
+    6.726510440260236,
+    -5.621031310513936,
+    19.6804303895471
+   ]
+  },
+  "xwobacon": {
+   "depth_over_speed": [
+    3.5727252611985327,
+    -7.933985351469296,
+    14.253731472307866
+   ],
+   "LVadj_over_speed_depth": [
+    9.221120808677076,
+    -3.4647503662440906,
+    22.6429160947559
+   ],
+   "both_over_speed": [
+    12.79384606987561,
+    -3.1102162867595187,
+    28.179621164447553
+   ]
+  },
+  "whiff_rate": {
+   "depth_over_speed": [
+    3.0296245279375325,
+    -6.314534805062231,
+    13.27124528485147
+   ],
+   "LVadj_over_speed_depth": [
+    -1.7982686068583218,
+    -5.95881338061926,
+    2.5145059633851257
+   ],
+   "both_over_speed": [
+    1.2313559210792109,
+    -10.318903254203713,
+    12.311599927601563
+   ]
+  }
+ },
+ "page_row3_gain_ci": {
+  "barrel_rate": [
+   17.445640458347718,
+   4.951473897918967,
+   31.18273407434432
+  ],
+  "ev50": [
+   13.02181220149682,
+   4.158349107150474,
+   21.957263306055737
+  ],
+  "hardhit_rate": [
+   10.604107538293269,
+   0.8648070236761912,
+   19.68634619163211
+  ],
+  "xwobacon": [
+   8.65189237353761,
+   0.10068832601936323,
+   16.97239594926427
+  ],
+  "whiff_rate": [
+   -2.1145859477506956,
+   -10.542849224939262,
+   5.916117420841132
+  ]
+ },
+ "elasticity_profile": {
+  "5": {
+   "speed": 63.68047203836385,
+   "path": 5.80809008703494,
+   "elasticity": 0.5867204792073468
+  },
+  "10": {
+   "speed": 65.36382707575233,
+   "path": 6.076813374469748,
+   "elasticity": 0.5562658937361855
+  },
+  "15": {
+   "speed": 67.10890349113626,
+   "path": 6.382443116412086,
+   "elasticity": 0.518717292673511
+  },
+  "20": {
+   "speed": 68.75699701767348,
+   "path": 6.699825657301174,
+   "elasticity": 0.47910992079923514
+  },
+  "25": {
+   "speed": 70.17246697227232,
+   "path": 7.006224129032523,
+   "elasticity": 0.4310667874744188
+  },
+  "30": {
+   "speed": 71.362825223855,
+   "path": 7.302245373710484,
+   "elasticity": 0.3804647654400849
+  },
+  "35": {
+   "speed": 72.28762611617123,
+   "path": 7.585714751642948,
+   "elasticity": 0.27563820711861126
+  },
+  "40": {
+   "speed": 72.76437435996161,
+   "path": 7.847494546693541,
+   "elasticity": 0.10546195643235172
+  },
+  "42": {
+   "speed": 72.82984978918282,
+   "path": 7.9491866775950095,
+   "elasticity": 0.03442114227128912
+  },
+  "45": {
+   "speed": 72.804648918426,
+   "path": 8.099775093310042,
+   "elasticity": -0.07231198135101424
+  },
+  "50": {
+   "speed": 72.45688934039347,
+   "path": 8.336530410815575,
+   "elasticity": -0.27177398362063715
+  },
+  "55": {
+   "speed": 71.7646633133688,
+   "path": 8.540355934561575,
+   "elasticity": -0.5573509915868544
+  }
+ },
+ "elasticity_windows_controlled": {
+  "12 in behind typical": 0.44652728931666746,
+  "+/-6 in around typical": 0.3817776409671997,
+  "12 in out front of typical": 0.25680961743447267
+ },
+ "worked_example_6in": {
+  "speed": [
+   71.30211639404297,
+   72.3856379939124
+  ],
+  "path": [
+   7.286011219024658,
+   7.624703085408127
+  ],
+  "v2L_change_pct": -1.515729867548854,
+  "speed_needed_for_constant_accel": 72.94053949599292
+ },
+ "elasticity_windows_uncontrolled": {
+  "-12..0": 0.4312682804169789,
+  "-6..6": 0.26931230214501606,
+  "0..12": 0.023903760993413885
+ },
+ "ab_swings": {
+  "iqr_floor_below_median_mph": 12.562497615814209,
+  "bimodal_clear_share_bat_speed": 0.05515832482124617,
+  "bimodal_clear_share_bat_speed_adj": 0.005107252298263534,
+  "power": {
+   "2": 0.0,
+   "3": 0.0,
+   "4": 0.0,
+   "5": 0.016666666666666666,
+   "6": 0.9666666666666667,
+   "7": 1.0
+  },
+  "two_strike": {
+   "speed_raw": {
+    "league_mean": -1.7860765828449305,
+    "tau": 0.7524147391328445,
+    "reliability": 0.7864713809022551,
+    "yoy": 0.6932141255741305
+   },
+   "speed_same_cp": {
+    "league_mean": -1.2007948733603295,
+    "tau": 0.6509388118179068,
+    "reliability": 0.800227249299095,
+    "yoy": 0.7255200893036818
+   },
+   "depth_ms": {
+    "league_mean": -1.1553229235672482,
+    "tau": 1.0405045645235156,
+    "reliability": 0.7703026158300276,
+    "yoy": 0.7107659705993191
+   },
+   "length_same_cp": {
+    "league_mean": -0.08168336753227323,
+    "tau": 0.07159879631037189,
+    "reliability": 0.8861289495424505,
+    "yoy": 0.826635518038689
+   }
+  },
+  "decomposition": {
+   "raw_vs_same_cp": 0.9093581050120453,
+   "raw_vs_depth": 0.5024301529787469,
+   "same_cp_vs_depth": 0.19321675463318114
+  },
+  "whiff_payoff": {
+   "speed_same_cp": {
+    "same_season_contact_only": 0.3051047478338632,
+    "next_season": 0.20845582439276272
+   },
+   "depth_ms": {
+    "same_season_contact_only": 0.21604885722779663,
+    "next_season": 0.16170767025438423
+   },
+   "length_same_cp": {
+    "same_season_contact_only": 0.17965521228672224
+   }
+  },
+  "cost": {
+   "ev50": -0.037706559134914296,
+   "xwobacon": -0.010521237169987707
+  },
+  "leaderboard": {
+   "backs_off_most": [
+    [
+     "Gim\u00e9nez, Andr\u00e9s",
+     -3.1832431386835216
+    ],
+    [
+     "Caballero, Jos\u00e9",
+     -2.7947713869061963
+    ],
+    [
+     "Schanuel, Nolan",
+     -2.7112519323018973
+    ],
+    [
+     "Jeffers, Ryan",
+     -2.690425996717908
+    ],
+    [
+     "Paredes, Isaac",
+     -2.404792298520009
+    ],
+    [
+     "Soto, Juan",
+     -2.4031622400798343
+    ],
+    [
+     "S\u00e1nchez, Jes\u00fas",
+     -2.382212685262746
+    ],
+    [
+     "Mangum, Jake",
+     -2.3522956568935935
+    ]
+   ],
+   "backs_off_least": [
+    [
+     "Sosa, Lenyn",
+     0.08654621190019385
+    ],
+    [
+     "Triolo, Jared",
+     0.06588655688783107
+    ],
+    [
+     "Montgomery, Colson",
+     0.06490235261049637
+    ],
+    [
+     "Marsh, Brandon",
+     0.05998801343243798
+    ],
+    [
+     "Doyle, Brenton",
+     -0.21453514277891494
+    ],
+    [
+     "Thomas, Lane",
+     -0.21656740926468687
+    ],
+    [
+     "Goodman, Hunter",
+     -0.25073521191831794
+    ],
+    [
+     "Walker, Christian",
+     -0.2758888423688046
+    ]
+   ],
+   "goes_deepest": [
+    [
+     "Turner, Trea",
+     -3.8108382157811076
+    ],
+    [
+     "Bichette, Bo",
+     -3.7500361282768218
+    ],
+    [
+     "Paredes, Isaac",
+     -3.1571557606552116
+    ],
+    [
+     "Smith, Dominic",
+     -2.8587436258739323
+    ],
+    [
+     "Hoerner, Nico",
+     -2.729050631514752
+    ],
+    [
+     "Tovar, Ezequiel",
+     -2.6783197549323368
+    ],
+    [
+     "Donovan, Brendan",
+     -2.6697123829726075
+    ],
+    [
+     "Crews, Dylan",
+     -2.597517628448304
+    ]
+   ]
+  }
+ }
+}
